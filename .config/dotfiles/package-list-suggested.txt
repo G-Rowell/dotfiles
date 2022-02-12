@@ -1,0 +1,17 @@
+tlp
+blueman
+bluez
+screenkey
+simplescreenrecorder
+steam
+npm
+qbittorrent
+__________________
+External sources?:
+__________________
+teamviewer
+discord
+neovim
+docker
+visual Studio Code (Microsoft free version)
+google Chrome

@@ -1,0 +1,14 @@
+preload
+acpi
+less
+ssh
+rsync
+tar
+gzip
+zip
+unzip
+grep
+ripgrep
+neofetch        # Show system stats
+htop            # Show running processes / system info
+gparted         # Partition hard drives
