@@ -1,0 +1,12 @@
+[user]
+	name = Galen Rowell
+	email = growell3@gmail.com
+[core]
+	editor = vim
+[color]
+	status = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+[credential]
+	helper = cache
