@@ -32,13 +32,14 @@ fi
 - sed
 - xargs
 - chsh
+- git
 
-Note: these applications should be present in base minimal install Debian 11
+Note: these applications should be present in base minimal install Debian 11 with the exception of `git` (installed as per below)
 
 Be careful with below:
 
 ```shell
-apt install -y git; git clone --bare https://github.com/G-Rowell/dotfiles /home/growell/.config/dotfiles/.git; /home/growell/install.sh
+apt install -y git; git clone --bare git@github.com:G-Rowell/dotfiles.git /home/growell/; /usr/bin/git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/growell checkout; /bin/bash /home/growell/install.sh
 ```
 
 ## Acknowledgements
