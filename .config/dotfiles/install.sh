@@ -22,6 +22,8 @@ log() {
    echo -e "\e[0;$1m-- $2 | \e[0m$3"
    echo -e "\e[0;$1m-- $2 | \e[0m$3" >> $HOME_DIR/install.log
 }
+
+
 ########################################################
 # Main program
 ########################################################
@@ -29,25 +31,6 @@ log() {
 ########################################################
 logP "start" "starting the script!"
 
-### Downloading the rest of the repo
-########################################################
-logP "git" "download the rest of the repo"
-function dotfiles {
-   /usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR $@
-}
-# TODO evaluate the below
-# mkdir -p .config-backup
-# dotfiles checkout
-# if [ $? = 0 ]; then
-#   echo "Checked out config.";
-# else
-#     echo "Backing up pre-existing dot files.";
-#     dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
-# fi;
-dotfiles checkout
-dotfiles config status.showUntrackedFiles no
-# Below is probably not needed, due to above setting
-# dotfiles config core.excludesfile .config/dotfiles/gitignore
 
 ### Install setup
 ########################################################
@@ -59,20 +42,29 @@ sed 's/#.*//' "$DOTFILES_DIR/package-list-core.txt" | xargs apt-get install -y
 logP "install" "installing main packages"
 sed 's/#.*//' "$DOTFILES_DIR/package-list-main.txt" | xargs apt-get install -y
 
+
 ### User setup
 ########################################################
 logP "user setup" "creating user"
-adduser growell sudo
-logP "user setup" "adding user to privileged group"
-sudo usermod -aG sudo growell
-logP "user setup" "changing default shell to zsh"
-chsh -s /bin/zsh growell >/dev/null 2>&1
+useradd -M -G sudo -s /bin/zsh "$USER" >/dev/null 2>&1
+# echo "$USER:$USER" | chpasswd
+passwd $USER
+
+logP "user setup" "modifying user group to allow certain privelleged commands"
+cp $DOTFILES_DIR/sudoers-growell /etc/sudoers.d/
+
+### Git setup
+########################################################
+/usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR $@ config status.showUntrackedFiles no
+# Below is probably not needed, due to above setting
+# dotfiles config core.excludesfile .config/dotfiles/gitignore
+
 
 ### Script cleanup
 ########################################################
-# rm $HOME_DIR/install.sh
-# config update-index --assume-unchanged $HOME_DIR/install.sh
-# rm $HOME_DIR/LICENSE
-# config update-index --assume-unchanged $HOME_DIR/LICENSE
-# rm $HOME_DIR/README.md
-# config update-index --assume-unchanged $HOME_DIR/README.md
+rm $HOME_DIR/install.sh
+config update-index --assume-unchanged $HOME_DIR/install.sh
+rm $HOME_DIR/LICENSE
+config update-index --assume-unchanged $HOME_DIR/LICENSE
+rm $HOME_DIR/README.md
+config update-index --assume-unchanged $HOME_DIR/README.md
