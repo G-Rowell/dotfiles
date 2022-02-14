@@ -46,7 +46,7 @@ sed 's/#.*//' "$DOTFILES_DIR/package-list-main.txt" | xargs apt-get install -y
 ### User setup
 ########################################################
 logP "user setup" "creating user"
-useradd -M -G sudo -s /bin/zsh "$USER" >/dev/null 2>&1
+useradd -M -G sudo -s /bin/zsh "$USER"
 # echo "$USER:$USER" | chpasswd
 passwd $USER
 
