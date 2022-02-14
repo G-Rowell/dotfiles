@@ -1,8 +1,6 @@
 sudo
 build-essential
-xorg-server
-xorg-xwininfo
-xorg-xinit
+xorg
 xcompmgr
 xwallpaper
 plasma-desktop

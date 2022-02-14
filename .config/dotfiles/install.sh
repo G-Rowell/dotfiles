@@ -34,13 +34,14 @@ logP "start" "starting the script!"
 
 ### Install setup
 ########################################################
-logP "install" "add nonfree contrib to /etc/apt/sources.list"
+# logP "install" "add nonfree contrib to /etc/apt/sources.list"
+# sed -r -i 's/^deb(.*)$/deb\1 contrib/g' /etc/apt/sources.list
 
 logP "install" "installing core packages"
-sed 's/#.*//' "$DOTFILES_DIR/package-list-core.txt" | xargs apt-get install -y
+sed 's/#.*//' "$DOTFILES_DIR/package-list-core.txt" | xargs -- apt-get install -y --
 
 logP "install" "installing main packages"
-sed 's/#.*//' "$DOTFILES_DIR/package-list-main.txt" | xargs apt-get install -y
+sed 's/#.*//' "$DOTFILES_DIR/package-list-main.txt" | xargs -- apt-get install -y --
 
 
 ### User setup
@@ -55,7 +56,7 @@ cp $DOTFILES_DIR/sudoers-growell /etc/sudoers.d/
 
 ### Git setup
 ########################################################
-/usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR $@ config status.showUntrackedFiles no
+/usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR config status.showUntrackedFiles no
 # Below is probably not needed, due to above setting
 # dotfiles config core.excludesfile .config/dotfiles/gitignore
 
@@ -63,8 +64,8 @@ cp $DOTFILES_DIR/sudoers-growell /etc/sudoers.d/
 ### Script cleanup
 ########################################################
 rm $HOME_DIR/install.sh
-config update-index --assume-unchanged $HOME_DIR/install.sh
+/usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR update-index --assume-unchanged $HOME_DIR/install.sh
 rm $HOME_DIR/LICENSE
-config update-index --assume-unchanged $HOME_DIR/LICENSE
+/usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR update-index --assume-unchanged $HOME_DIR/LICENSE
 rm $HOME_DIR/README.md
-config update-index --assume-unchanged $HOME_DIR/README.md
+/usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR update-index --assume-unchanged $HOME_DIR/README.md
