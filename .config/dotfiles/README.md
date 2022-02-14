@@ -7,6 +7,7 @@
 - install:
    - a `rm` drop in replacement
    - docker
+- use wget & tar to avoid needing git right away, instead install git with install.sh
 
 ZSH:
 
