@@ -3,6 +3,8 @@ build-essential
 xorg-server
 xorg-xwininfo
 xorg-xinit
+xcompmgr
+xwallpaper
 plasma-desktop
 dkms
 curl
