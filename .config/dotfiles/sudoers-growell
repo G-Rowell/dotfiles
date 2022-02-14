@@ -22,4 +22,4 @@
 # Allow the user of group 'growell' to execute the following commands without a password
    # NOTE: 'apt', 'apt-get' & 'aptitude' are all notable security risks, as they allow the user to gain a root shell through interactive install scripts.
    # This is likely not an issue given we're adding this user to the 'sudo' group anyway
-"growell ALL=(ALL) NOPASSWD: /usr/bin/apt, /usr/bin/apt-get, /usr/bin/aptitude /usr/bin/shutdown,/usr/bin/reboot,/usr/bin/systemctl suspend,/usr/bin/mount,/usr/bin/umount,/usr/bin/systemctl restart NetworkManager"
+"growell ALL=(ALL) NOPASSWD: /usr/bin/apt, /usr/bin/apt-get, /usr/bin/aptitude /usr/sbin/shutdown,/usr/sbin/reboot,/usr/bin/systemctl suspend,/usr/bin/mount,/usr/bin/umount,/usr/bin/systemctl restart NetworkManager"
