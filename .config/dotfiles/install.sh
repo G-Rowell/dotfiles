@@ -35,6 +35,8 @@ logP "start" "starting the script!"
 # logP "install" "add nonfree contrib to /etc/apt/sources.list"
 # sed -r -i 's/^deb(.*)$/deb\1 contrib/g' /etc/apt/sources.list
 
+apt update
+
 logP "install" "installing packages"
 sed 's/#.*//' "$DOTFILES_DIR/package-list.txt" | xargs -- apt-get install -y --
 
@@ -56,7 +58,7 @@ cp $DOTFILES_DIR/sudoers-growell /etc/sudoers.d/
 
 ### NeoVim setup
 ########################################################
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage --output-dir /home/growell/.local/bin/
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage --output-dir /home/growell/.local/bin
 chmod u+x /home/growell/.local/bin/nvim.appimage
 update-alternatives --install /usr/bin/ex ex /home/growell/.local/bin/nvim.appimage 110
 update-alternatives --install /usr/bin/vim vim /home/growell/.local/bin/nvim.appimage 110
@@ -71,7 +73,7 @@ logP "script cleanup" "removing git symbollic links from /home/growell/"
 rm $HOME_DIR/install.sh
 /usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR update-index --assume-unchanged $HOME_DIR/install.sh
 rm $HOME_DIR/LICENCE
-/usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR update-index --assume-unchanged $HOME_DIR/LICENcE
+/usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR update-index --assume-unchanged $HOME_DIR/LICENCE
 rm $HOME_DIR/README.md
 /usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR update-index --assume-unchanged $HOME_DIR/README.md
 
