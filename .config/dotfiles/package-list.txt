@@ -9,9 +9,9 @@ acpi            # Displays information about batteries & thermals
 # X server & display
 ####################################################
 xorg
-xcompmgr
 xwallpaper
 # plasma-desktop
+# xcompmgr
 picom           # Compositor
 bspwm           # Window manager
 rofi            # Window switcher, dialog & general tools
