@@ -23,14 +23,12 @@ log() {
    echo -e "\e[0;$1m-- $2 | \e[0m$3" >> $HOME_DIR/install.log
 }
 
-
 ########################################################
 # Main program
 ########################################################
 ### Start script
 ########################################################
 logP "start" "starting the script!"
-
 
 ### Install setup
 ########################################################
@@ -56,6 +54,16 @@ cp $DOTFILES_DIR/sudoers-growell /etc/sudoers.d/
 # Below is probably not needed, due to above setting
 # dotfiles config core.excludesfile .config/dotfiles/gitignore
 
+### NeoVim setup
+########################################################
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage --output-dir /home/growell/.local/bin/
+chmod u+x /home/growell/.local/bin/nvim.appimage
+update-alternatives --install /usr/bin/ex ex /home/growell/.local/bin/nvim.appimage 110
+update-alternatives --install /usr/bin/vim vim /home/growell/.local/bin/nvim.appimage 110
+update-alternatives --install /usr/bin/ex ex /home/growell/.local/bin/nvim.appimage 110
+
+git clone https://github.com/G-Rowell/NvChad ~/.config/nvim
+/home/growell/.local/bin/nvim.appimage --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 ### Script cleanup
 ########################################################
