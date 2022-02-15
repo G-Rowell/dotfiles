@@ -66,8 +66,8 @@ cp $DOTFILES_DIR/sudoers-growell /etc/sudoers.d/
 logP "script cleanup" "removing git symbollic links from /home/growell/"
 rm $HOME_DIR/install.sh
 /usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR update-index --assume-unchanged $HOME_DIR/install.sh
-rm $HOME_DIR/LICENSE
-/usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR update-index --assume-unchanged $HOME_DIR/LICENSE
+rm $HOME_DIR/LICENCE
+/usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR update-index --assume-unchanged $HOME_DIR/LICENcE
 rm $HOME_DIR/README.md
 /usr/bin/git --git-dir=$DOTFILES_DIR/.git/ --work-tree=$HOME_DIR update-index --assume-unchanged $HOME_DIR/README.md
 
