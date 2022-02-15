@@ -1,0 +1,39 @@
+#!/bin/zsh
+
+# Include local bin folder
+if [ -d "$HOME/.local/bin" ] ; then
+  PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Default programs:
+export TERMINAL="kitty"
+export PAGER="less"
+export EDITOR="vim"
+export visual="vim"
+export BROWSER="firefox"
+
+# ~/ Clean-up:
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
+
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+export KDEHOME="$XDG_CONFIG_HOME/kde"
+export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+export LESSHISTFILE="-"
+
+
+# export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+# export TEXMFHOME="$XDG_DATA_HOME/texmf"
+
+
+# export QT_STYLE_OVERRIDE=kvantum
+#Mozilla 
+export MOZ_USE_XINPUT2="1"	# Mozilla smooth scrolling/touchpads.
+
+# Start graphical X server if not already running
+[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx #"$XINITRC"

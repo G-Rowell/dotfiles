@@ -1,0 +1,43 @@
+# ZSH aliases file
+# This file is not a standard name, simply made and sourced from `.zshrc`
+#Src: https://old.reddit.com/r/linux4noobs/comments/oeqi2j/simple_bashrc_tweak_that_ive_found_extremely/
+wtfis() {     curl "https://cheat.sh/$1"}
+
+alias config='git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/growell/'
+
+# Some `ls` aliases
+alias ll='ls -lha'
+alias lss='ls -1'
+
+# Some `git` aliases
+alias ga='git add'
+alias gs='git status'
+alias gc='git commit'
+alias gch='git checkout'
+alias gpul='git pull'
+alias gp='git push'
+alias gf='git fetch --all'
+alias gb='git branch'
+
+alias grem='git remote'
+alias gremv='git remote -v'
+alias grev='git revert'
+
+alias gcp='git cherry-pick'
+alias gcpc='gcp --continue'
+alias gcpa='gcp --abort'
+
+alias gr='git reset'
+alias grh='gr --hard'
+alias grs='gr --soft'
+
+alias grb='git rebase'
+alias grbi='grb --interactive'
+alias grbc='grb --continue'
+alias grbs='grb --skip'
+alias grba='grb --abort'
+
+alias gd='git diff'
+alias gcf='git clean -f -d'
+alias grcp='git reset && gcpc'
+alias glog='git log --oneline'
