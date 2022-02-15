@@ -37,12 +37,8 @@ logP "start" "starting the script!"
 # logP "install" "add nonfree contrib to /etc/apt/sources.list"
 # sed -r -i 's/^deb(.*)$/deb\1 contrib/g' /etc/apt/sources.list
 
-logP "install" "installing core packages"
-sed 's/#.*//' "$DOTFILES_DIR/package-list-core.txt" | xargs -- apt-get install -y --
-
-logP "install" "installing main packages"
-sed 's/#.*//' "$DOTFILES_DIR/package-list-main.txt" | xargs -- apt-get install -y --
-
+logP "install" "installing packages"
+sed 's/#.*//' "$DOTFILES_DIR/package-list.txt" | xargs -- apt-get install -y --
 
 ### User setup
 ########################################################
