@@ -58,7 +58,8 @@ cp $DOTFILES_DIR/sudoers-growell /etc/sudoers.d/
 
 ### NeoVim setup
 ########################################################
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage --output-dir /home/growell/.local/bin
+mkdir /home/growell/.local/bin
+wget -P /home/growell/.local/bin/ https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x /home/growell/.local/bin/nvim.appimage
 update-alternatives --install /usr/bin/ex ex /home/growell/.local/bin/nvim.appimage 110
 update-alternatives --install /usr/bin/vim vim /home/growell/.local/bin/nvim.appimage 110
