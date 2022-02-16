@@ -32,6 +32,7 @@ zip
 unzip
 grep
 ripgrep
+fuse            # Used to mount appimages (eg: NeoVim)
 ####################################################
 # Basic applications
 ####################################################
