@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Hotkey daemon
+skhkd &
+
+# Web browser
+firefox &
+
+# Terminal emulator
+kitty &
+
+# Compositor
+picom

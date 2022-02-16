@@ -1,0 +1,11 @@
+# Show run menu
+super + @space
+   rofi -show run
+
+# Start terminal emulator
+super + Return
+   kitty
+
+# Start firefox
+super + f
+   firefox
