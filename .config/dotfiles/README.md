@@ -43,6 +43,22 @@ Be careful with below:
 apt install -y git; git clone --bare https://github.com/G-Rowell/dotfiles.git /home/growell/.config/dotfiles/.git; /usr/bin/git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/growell/ checkout; /bin/bash /home/growell/install.sh
 ```
 
+## What this script does
+
+1. [Installs this list of packages](https://github.com/G-Rowell/dotfiles/blob/main/.config/dotfiles/package-list.txt)
+2. Sets up the user, including:
+   - giving special sudo permissions for various commands such as `apt`
+3. Installs various dotfile configurations, notable ones include:
+   - NeoVim
+   - Kitty
+   - Zsh
+   - Bspwm + Picom + Sxhkd + Polybar
+4. Installs various applications from third-party repos:
+   - Spotify
+   - NeoVim
+   - Docker
+   - A nerd-font (for special symbols)
+
 ## Acknowledgements
 
 This was compiled together from various public dotfiles, tutorials and many forum posts across the internet. Thank you to all.
@@ -58,7 +74,7 @@ Including:
 - [Ulises Jeremias' dotfile generator (and rofi scripts)](https://github.com/ulises-jeremias/dotfiles)
 
 - Rofi scripts:
-   - [Nirah998 rofi scripts](https://github.com/niraj998/Rofi-Scripts)
+   - [Niraj998 rofi scripts](https://github.com/niraj998/Rofi-Scripts)
 
 ## Minor Acknowledgements
 
