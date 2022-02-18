@@ -30,14 +30,14 @@ fi
 - wget
 - sed
 - chsh
-- git
 
-Note: these applications should be present in base minimal install Debian 11 with the exception of `git` (installed as per below)
+Note: these applications should be present in base Debian 11
 
 Be careful with below:
 
 ```shell
-apt install -y git; git clone --bare https://github.com/G-Rowell/dotfiles.git /home/growell/.config/dotfiles/.git; /bin/bash /home/growell/install.sh
+wget -qO - https://github.com/G-Rowell/dotfiles/blob/main/.config/dotfiles/install.sh | bash
+
 ```
 
 ## What this script does

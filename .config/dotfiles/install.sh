@@ -98,6 +98,8 @@ logP "start" "starting the script!"
 
 ### Git setup
 ########################################################
+apt install -y git
+git clone --bare https://github.com/G-Rowell/dotfiles.git /home/growell/.config/dotfiles/.git
 git --git-dir="$DOTFILES_DIR/.git/" --work-tree="$HOME_DIR" checkout
 git --git-dir="$DOTFILES_DIR/.git/" --work-tree="$HOME_DIR" config status.showUntrackedFiles no
 
