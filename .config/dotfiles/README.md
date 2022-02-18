@@ -6,8 +6,6 @@
    - write a script to do this properly
 - install:
    - a `rm` drop in replacement
-   - docker
-- use wget & tar to avoid needing git right away, instead install git with install.sh
 
 ZSH:
 
@@ -31,7 +29,6 @@ fi
 - bash
 - wget
 - sed
-- xargs
 - chsh
 - git
 
@@ -66,8 +63,8 @@ This was compiled together from various public dotfiles, tutorials and many foru
 Including:
 
 - [Luke Smith LARBS](https://github.com/LukeSmithxyz/LARBS/)
-   
-   Much of this repo has been taken or inspired from his, including bin scripts.
+      
+      Much of this repo has been taken or inspired from his, including bin scripts.
 
 - [Atlasssian Git bare repo for Dotfiles](https://www.atlassian.com/git/tutorials/dotfiles)
 
@@ -75,9 +72,3 @@ Including:
 
 - Rofi scripts:
    - [Niraj998 rofi scripts](https://github.com/niraj998/Rofi-Scripts)
-
-## Minor Acknowledgements
-
-- [Download a GitHub repo and extract locally](https://stackoverflow.com/a/8378458)
-
-- [Use sed & xargs to run apt-get](https://www.monolune.com/installing-apt-packages-from-a-requirements-file/)
