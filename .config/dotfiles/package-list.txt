@@ -6,10 +6,11 @@ build-essential
 preload         # Monitors common applications, auto fetches into memory
 acpi            # Displays information about batteries & thermals
 ####################################################
-# X server & display
+# X server, display, audio
 ####################################################
 xorg
 xwallpaper
+xclip
 # plasma-desktop
 # xcompmgr
 picom           # Compositor
@@ -17,6 +18,7 @@ bspwm           # Window manager
 rofi            # Window switcher, dialog & general tools
 xdo             # Window manipulation tool
 polybar         # Statusbar
+alsa-utils      # For audio
 ####################################################
 # Basic tooling
 ####################################################
