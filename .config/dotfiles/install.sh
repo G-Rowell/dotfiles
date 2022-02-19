@@ -85,6 +85,7 @@ neovim_install() {
 
    # TODO: consider sub-modules for git?
    git clone https://github.com/G-Rowell/NvChad "$HOME_DIR/.config/nvim"
+   "$HOME_DIR/.local/bin/nvim.appimage" --headless -c 'autocmd User VimEnter quitall'
    "$HOME_DIR/.local/bin/nvim.appimage" --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 }
