@@ -36,7 +36,7 @@ Note: these applications should be present in base Debian 11
 Be careful with below:
 
 ```shell
-wget -qO - https://github.com/G-Rowell/dotfiles/blob/main/.config/dotfiles/install.sh | bash
+wget -qO - https://raw.githubusercontent.com/G-Rowell/dotfiles/main/.config/dotfiles/install.sh | bash
 
 ```
 
