@@ -42,14 +42,14 @@ install_core_pkgs() {
    apt update
 
    logP "install" "installing core packages"
-   sed 's/#.*//' "$DOTFILES_DIR/package-list-core.txt" | apt-get install -y
+   sed 's/#.*//' "$DOTFILES_DIR/package-list-core.txt" | xargs -- apt-get install -y
 }
 
 install_custom_pkgs() {
    apt update
 
    logP "install" "installing custom packages"
-   sed 's/#.*//' "$DOTFILES_DIR/package-list-custom.txt" | apt-get install -y
+   sed 's/#.*//' "$DOTFILES_DIR/package-list-custom.txt" | xargs -- apt-get install -y
    
    ### Spotify install
    wget -O - https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add -
