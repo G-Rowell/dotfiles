@@ -3,7 +3,7 @@
 #Src: https://old.reddit.com/r/linux4noobs/comments/oeqi2j/simple_bashrc_tweak_that_ive_found_extremely/
 wtfis() {     curl "https://cheat.sh/$1"}
 
-alias config='git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/growell/'
+alias cfg='git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/growell/'
 
 # Some `ls` aliases
 alias ll='ls -lha'
