@@ -37,7 +37,11 @@ Note: these applications should be present in base Debian 11
 
 1. Install Debian 11
 
-      I suggest installing a minimal version, with no X server or normal users.
+Suggestions:
+- Installing a minimal version:
+   - no X server
+   - no desktop environment (including unchecking `Debian destop environment` + `GNOME`)
+   - no user (except root) (when prompted, click `Go Back` twice, and skip the user setup steps)
 
 2.  ```shell
 wget -qO - https://raw.githubusercontent.com/G-Rowell/dotfiles/main/.config/dotfiles/install.sh | bash
@@ -59,6 +63,16 @@ wget -qO - https://raw.githubusercontent.com/G-Rowell/dotfiles/main/.config/dotf
    - NeoVim
    - Docker
    - A nerd-font (for special symbols)
+
+### Programs
+
+- Bspwm (window manager)
+- Picom (X compositor)
+- Sxhkd (hotkey daemon)
+
+- ZSH (shell)
+- Kitty (terminal emulator)
+- Git (version management)
 
 ## Acknowledgements
 
