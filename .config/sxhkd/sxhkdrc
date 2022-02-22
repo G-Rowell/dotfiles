@@ -1,3 +1,6 @@
+##############################################################
+# Programs
+##############################################################
 # Show run menu
 super + @space
    rofi -show drun
@@ -9,3 +12,29 @@ super + Return
 # Start firefox
 super + f
    firefox
+
+##############################################################
+# Bspwm meta hotkeys
+##############################################################
+# Reload bspwm & sxkhd
+super + shift + r
+   pkill -USR1 -x sxhkd && bspc wm -r
+
+# Close and kill
+super + {_, shift +} q
+   bspc node -{c,k}
+
+##############################################################
+# Bspwm movement hotkeys
+##############################################################
+# Move to the given desktop
+super + {_,shift + }{1-4}
+   bspc {desktop -f, node -d} '^{1-4}'
+
+# Move across desktops
+#super + {h,l}
+#   bspc desktop -f {prev,next}
+
+# Select next node (window)
+super + {_,shift + }{h,j,k,l}
+   bspc node -{f,s} {west,south,north,east}

@@ -1,5 +1,21 @@
 #!/bin/sh
 
+##############################################################
+# Bspwm settings
+##############################################################
+bspc monitor -d 1 2 3 4 5
+
+bspc config border_width         3
+bspc config borderless_monocle   false
+
+bspc config window_gap            10
+bspc config split_ratio           0.50
+bspc config gapless_monocle       true
+bspc config focus_follows_pointer true
+
+##############################################################
+# Auto-started programs
+##############################################################
 # Hotkey daemon
 sxhkd &
 
@@ -13,4 +29,7 @@ firefox &
 kitty &
 
 # Compositor
-picom
+picom &
+
+# Bring kitty colour scheme into Xorg
+xrdb merge ~/.config/X11/xresources
