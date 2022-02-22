@@ -1,6 +1,6 @@
 # Show run menu
 super + @space
-   rofi -show run
+   rofi -show drun
 
 # Start terminal emulator
 super + Return
