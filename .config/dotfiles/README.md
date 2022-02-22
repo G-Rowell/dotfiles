@@ -33,9 +33,13 @@ fi
 
 Note: these applications should be present in base Debian 11
 
-Be careful with below:
+### Run
 
-```shell
+1. Install Debian 11
+
+      I suggest installing a minimal version, with no X server or normal users.
+
+2.  ```shell
 wget -qO - https://raw.githubusercontent.com/G-Rowell/dotfiles/main/.config/dotfiles/install.sh | bash
 
 ```
