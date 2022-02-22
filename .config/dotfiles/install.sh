@@ -60,7 +60,8 @@ install_custom_pkgs() {
 create_user() {
    logP "user setup" "creating user"
    useradd -M -G sudo -s /bin/zsh "$USER"
-   passwd $USER
+   echo "$USER:$USER" | chpasswd
+   passwd -e "$USER"
 
    logP "user setup" "modifying user group to allow certain privelleged commands"
    cp $DOTFILES_DIR/sudoers-growell /etc/sudoers.d/
