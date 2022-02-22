@@ -3,6 +3,9 @@
 # Hotkey daemon
 sxhkd &
 
+# Status bar
+polybar topBar &
+
 # Web browser
 firefox &
 
