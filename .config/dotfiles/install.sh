@@ -120,6 +120,10 @@ check_user_approval "create & setup user" || create_user
 ########################################################
 check_user_approval "install nerd font" || font_install
 
+### Load colour scheme into xrdb
+########################################################
+xrdb merge "$HOME_DIR/X11/xresources"
+
 ### NeoVim setup
 ########################################################
 check_user_approval "install neovim" || neovim_install
