@@ -19,6 +19,12 @@ bspc config focus_follows_pointer true
 # Hotkey daemon
 sxhkd &
 
+# Bring kitty colour scheme into Xorg
+xrdb merge ~/.config/X11/xresources &
+
+# Compositor
+picom &
+
 # Status bar
 polybar topBar &
 
@@ -27,9 +33,3 @@ firefox &
 
 # Terminal emulator
 kitty &
-
-# Compositor
-picom &
-
-# Bring kitty colour scheme into Xorg
-xrdb merge ~/.config/X11/xresources
