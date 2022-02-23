@@ -24,6 +24,7 @@ fonts-material-design-icons-iconfont
 ####################################################
 # Basic tooling
 ####################################################
+cups            # Printing
 ####################################################
 # Basic applications
 ####################################################
@@ -33,3 +34,4 @@ kitty           # Terminal emulator
 neofetch        # Show system stats
 gparted         # Partition hard drives
 docker.io       # For development containers
+okular          # PDF viewing
