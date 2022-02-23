@@ -6,8 +6,8 @@ wtfis() {     curl "https://cheat.sh/$1"}
 alias cfg='git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/growell/'
 
 # Some `ls` aliases
-alias ll='ls -lha'
-alias lss='ls -1'
+alias ls='ls -1 --color --group-directories-first'
+alias ll='ls -lhA --color --group-directories-first'
 
 # Some `git` aliases
 alias ga='git add'
