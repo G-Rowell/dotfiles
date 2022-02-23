@@ -17,8 +17,8 @@ super + f
 # Bspwm meta hotkeys
 ##############################################################
 # Reload bspwm & sxkhd
-super + shift + r
-   pkill -USR1 -x sxhkd && bspc wm -r
+super + {_, shift + }r
+   {pkill -USR1 -x sxhkd, bspc wm -r}
 
 # Close and kill
 super + {_, shift +} q
