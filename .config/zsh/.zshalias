@@ -19,13 +19,7 @@ alias gp='git push'
 alias gf='git fetch --all'
 alias gb='git branch'
 
-alias grem='git remote'
-alias gremv='git remote -v'
-alias grev='git revert'
-
-alias gcp='git cherry-pick'
-alias gcpc='gcp --continue'
-alias gcpa='gcp --abort'
+alias grem='git remote -v'
 
 alias gr='git reset'
 alias grh='gr --hard'
@@ -38,6 +32,4 @@ alias grbs='grb --skip'
 alias grba='grb --abort'
 
 alias gd='git diff'
-alias gcf='git clean -f -d'
-alias grcp='git reset && gcpc'
 alias glog='git log --oneline'
