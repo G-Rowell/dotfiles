@@ -1,5 +1,24 @@
 # Personal install script & dotfiles for setup
 
+## Programs
+
+| Program               | Web link                                      |
+| --------------------- | --------------------------------------------- |
+| Operating system      | [Debian 11 - Bullseye](https://www.debian.org/releases/bullseye/) |
+| Shell                 | [ZSH](https://www.zsh.org/)                   |
+| Editor                | [NvChad](https://github.com/NvChad/NvChad)    |
+| Terminal emulator     | [Kitty](https://github.com/kovidgoyal/kitty)  |
+| --------------------- | --------------------------------------------- |
+| Window manager        | [Bspwm](https://github.com/baskerville/bspwm) |
+| Compositor            | [Picom](https://github.com/yshui/picom)       |
+| Hotkey daemon         | [Sxhkd](https://github.com/baskerville/sxhkd) |
+| Colour scheme         | [Catppuccin](https://github.com/catppuccin/catppuccin) |
+| --------------------- | --------------------------------------------- |
+| Browser               | [Firefox ESR](https://www.mozilla.org/en-US/firefox/new/) |
+| Music player          | [Spotify](https://www.spotify.com/)           |
+| --------------------- | --------------------------------------------- |
+
+
 ## TODO
 
 - use docker & it's [bind mounts](https://docs.docker.com/storage/bind-mounts/) to containerise only the build / packages for a language (eg: postgresDB)
@@ -43,10 +62,9 @@ Suggestions:
    - no desktop environment (including unchecking `Debian destop environment` + `GNOME`)
    - no user (except root) (when prompted, click `Go Back` twice, and skip the user setup steps)
 
-2.  ```shell
-wget -qO - https://raw.githubusercontent.com/G-Rowell/dotfiles/main/.config/dotfiles/install.sh | bash
-
-```
+2. ```shell
+   wget -qO - https://raw.githubusercontent.com/G-Rowell/dotfiles/main/.config/dotfiles/install.sh | bash
+   ```
 
 ## What this script does
 
@@ -63,16 +81,6 @@ wget -qO - https://raw.githubusercontent.com/G-Rowell/dotfiles/main/.config/dotf
    - NeoVim
    - Docker
    - A nerd-font (for special symbols)
-
-### Programs
-
-- Bspwm (window manager)
-- Picom (X compositor)
-- Sxhkd (hotkey daemon)
-
-- ZSH (shell)
-- Kitty (terminal emulator)
-- Git (version management)
 
 ## Acknowledgements
 
