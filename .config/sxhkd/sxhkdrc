@@ -24,12 +24,27 @@ super + shift + r
 super + {_, shift +} q
    bspc node -{c,k}
 
+# Switch to monocle mode
+super + m
+   bspc desktop -l next
+
+# Volume up & down
+XF86AudioRaiseVolume
+   amixer -D pulse sset Master 5%+ unmute
+   
+XF86AudioLowerVolume
+   amixer -D pulse sset Master 5%- unmute
+
+# Mute Volume
+XF86AudioMute
+   amixer -D pulse sset Master mute
+
 ##############################################################
 # Bspwm movement hotkeys
 ##############################################################
 # Move to the given desktop
-super + {_,shift + }{1-4}
-   bspc {desktop -f, node -d} '^{1-4}'
+super + {_,shift + }{1-5}
+   bspc {desktop -f, node -d} '^{1-5}'
 
 # Move across desktops
 #super + {h,l}

@@ -22,6 +22,9 @@ sxhkd &
 # Bring kitty colour scheme into Xorg
 xrdb merge ~/.config/X11/xresources &
 
+# Set background
+xwallpaper --focus ~/.config/X11/wallpaper.png &
+
 # Compositor
 picom &
 
