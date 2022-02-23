@@ -47,8 +47,8 @@ super + {_,shift + }{1-5}
    bspc {desktop -f, node -d} '^{1-5}'
 
 # Move across desktops
-#super + {h,l}
-#   bspc desktop -f {prev,next}
+super + d + {j,k}
+   bspc desktop -f {prev,next}
 
 # Select next node (window)
 super + {_,shift + }{h,j,k,l}
