@@ -40,8 +40,8 @@ border-bottom-color = ${colors.background}
 line-size = 1
 wm-restack = bspwm
 
-modules-left = round-left bspwm round-right empty-space  round-left polywins round-right
-modules-center =  
+modules-left = round-left bspwm
+modules-center = round-left polywins round-right
 modules-right = alsa round-left cpu round-right wlan mem backlight round-left time  round-right  powermenu
 ; modules-right = alsa round-left cpu round-right updates wlan mem xbacklight round-left time  round-right  powermenu
 font-0 = SauceCodePro Nerd Font Mono:style=Bold:pixelsize=14;4
@@ -207,7 +207,7 @@ format-prefix-foreground = #d19a66
 type = custom/text 
 content =" " 
 content-padding = 2
-click-left = doas zzz &
+click-left = systemctl suspend &
 content-foreground = #f25287
 
 [module/wlan]
