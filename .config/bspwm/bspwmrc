@@ -40,3 +40,6 @@ pgrep "firefox" >/dev/null 2>&1 || firefox &
 
 # Terminal emulator
 pgrep "kitty" >/dev/null 2>&1 || kitty &
+
+# Spotify music
+pgrep "spotify" >/dev/null 2>&1 || spotify &
