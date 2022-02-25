@@ -31,7 +31,9 @@ xwallpaper --focus ~/.config/X11/wallpaper.png &
 picom &
 
 # Status bar
-killall -q polybar || polybar topBar &
+pkill polybar
+
+polybar topBar &
 
 # Web browser
 pgrep "firefox" >/dev/null 2>&1 || firefox &
