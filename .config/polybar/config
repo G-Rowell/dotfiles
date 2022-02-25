@@ -45,7 +45,7 @@ modules-center = round-left polywins round-right
 modules-right = alsa round-left cpu round-right empty-space wlan mem backlight round-left time  round-right sleep_lock_menu power_menu
 ; modules-right = alsa round-left cpu round-right updates wlan mem xbacklight round-left time  round-right  sleep_lock_menu power_menu
 font-0 = SauceCodePro Nerd Font Mono:style=Bold:pixelsize=14;4
-font-1 = SauceCodePro Nerd Font Mono:size=18;6
+font-1 = SauceCodePro Nerd Font Mono:size=18;5
 font-2 = Material Design Icons:style=Bold:size=14;4
 font-3 = unifont:fontformat=truetype:size=14;4
 
