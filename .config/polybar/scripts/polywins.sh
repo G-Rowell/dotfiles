@@ -7,11 +7,11 @@
 
 # SETTINGS {{{ ---
 
-active_text_color="#250F0B"
+# active_text_color="#250F0B"
 active_bg=
 active_underline="#ECB3B2"
 
-inactive_text_color="#250F0B"
+inactive_text_color="#96CDFB"
 inactive_bg=
 inactive_underline=
 
