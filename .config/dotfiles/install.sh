@@ -39,22 +39,23 @@ check_user_approval() {
 }
 
 install_core_pkgs() {
-   apt update
+   apt-get update
 
    logP "install" "installing core packages"
    sed 's/#.*//' "$DOTFILES_DIR/package-list-core.txt" | xargs -- apt-get install -y
 }
 
 install_custom_pkgs() {
-   apt update
+   apt-get update
 
    logP "install" "installing custom packages"
    sed 's/#.*//' "$DOTFILES_DIR/package-list-custom.txt" | xargs -- apt-get install -y
    
    ### Spotify install
-   wget -O - https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add -
+   wget -nv -O - https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add -
    echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-   apt update && apt install -y spotify-client
+   apt-get update && apt-get install -y spotify-client
+   ln -s /usr/share/spotify/spotify.desktop "$HOME_DIR/.local/share/applications/"
 }
 
 create_user() {
@@ -69,14 +70,14 @@ create_user() {
 
 font_install() {
    mkdir -p "$HOME_DIR/.local/share/fonts"
-   ( cd $(mktemp -d); wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/SourceCodePro.zip; unzip SourceCodePro.zip; mv "Sauce Code Pro Nerd Font Complete Mono.ttf" "$HOME_DIR/.local/share/fonts/")
+   ( cd $(mktemp -d); wget -nv https://github.com/ryanoasis/nerd-fonts/releases/latest/download/SourceCodePro.zip; unzip SourceCodePro.zip; mv "Sauce Code Pro Nerd Font Complete Mono.ttf" "$HOME_DIR/.local/share/fonts/")
 
    fc-cache -f
 }
 
 neovim_install() {
    mkdir "$HOME_DIR/.local/bin"
-   wget -P "$HOME_DIR/.local/bin/" https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+   wget -nv -P "$HOME_DIR/.local/bin/" https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
    chmod u+x "$HOME_DIR/.local/bin/nvim.appimage"
    update-alternatives --install /usr/bin/ex ex "$HOME_DIR/.local/bin/nvim.appimage" 110
    update-alternatives --install /usr/bin/vi vi "$HOME_DIR/.local/bin/nvim.appimage" 110
