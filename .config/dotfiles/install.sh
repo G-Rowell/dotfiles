@@ -51,6 +51,9 @@ install_custom_pkgs() {
    logP "install" "installing custom packages"
    sed 's/#.*//' "$DOTFILES_DIR/package-list-custom.txt" | xargs -- apt-get install -y
    
+   ### Docker group permissions
+   usermod -aG docker "$USER"
+
    ### Spotify install
    wget -nv -O - https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add -
    echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
