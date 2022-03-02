@@ -19,6 +19,7 @@ rofi            # Window switcher, dialog & general tools
 xdo             # Window manipulation tool
 polybar         # Statusbar
 alsa-utils      # For audio
+pulseaudio      # For audio
 unifont
 fonts-material-design-icons-iconfont
 ####################################################

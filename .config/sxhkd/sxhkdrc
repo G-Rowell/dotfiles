@@ -28,16 +28,28 @@ super + {_, shift +} q
 super + m
    bspc desktop -l next
 
-# Volume up & down
-XF86AudioRaiseVolume
-   amixer -D pulse sset Master 5%+ unmute
-   
-XF86AudioLowerVolume
-   amixer -D pulse sset Master 5%- unmute
-
-# Mute Volume
+# Mute sond
 XF86AudioMute
-   amixer -D pulse sset Master mute
+    pactl set-sink-mute 0 toggle
+
+XF86AudioRaiseVolume
+    pactl set-sink-volume 0 +5%
+
+XF86AudioLowerVolume
+    pactl set-sink-volume 0 -5%;
+
+XF86AudioPlay
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+XF86AudioStop
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+
+XF86AudioNext
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+XF86AudioPrev
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+
 
 ##############################################################
 # Bspwm movement hotkeys
