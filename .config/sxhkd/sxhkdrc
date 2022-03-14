@@ -10,46 +10,27 @@ super + Return
    kitty
 
 # Start firefox
-super + f
-   firefox
+super + {_, shift + }f
+   {firefox, firefox --private-window}
+
+# Start vlc
+super + v
+   vlc
 
 ##############################################################
 # Bspwm meta hotkeys
 ##############################################################
 # Reload bspwm & sxkhd
 super + {_, shift + }r
-   {pkill -USR1 -x sxhkd, bspc wm -r}
+   {bspc wm -r, pkill -USR1 -x sxhkd}
 
-# Close and kill
-super + {_, shift +} q
-   bspc node -{c,k}
+# Close
+super + shift + q
+   bspc node -c
 
 # Switch to monocle mode
 super + m
    bspc desktop -l next
-
-# Mute sond
-XF86AudioMute
-    pactl set-sink-mute 0 toggle
-
-XF86AudioRaiseVolume
-    pactl set-sink-volume 0 +5%
-
-XF86AudioLowerVolume
-    pactl set-sink-volume 0 -5%;
-
-XF86AudioPlay
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-
-XF86AudioStop
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
-
-XF86AudioNext
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-
-XF86AudioPrev
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
-
 
 ##############################################################
 # Bspwm movement hotkeys
@@ -62,6 +43,36 @@ super + {_,shift + }{1-5}
 super + {w,e}
    bspc desktop -f {prev,next}
 
-# Select next node (window)
+# Move across desktops and bring node
+super + shift + {w,e}
+   bspc node -d {prev,next} --follow
+
+# Select next node (or swap)
 super + {_,shift + }{h,j,k,l}
    bspc node -{f,s} {west,south,north,east}
+
+##############################################################
+# Audio hotkeys
+##############################################################
+# Mute sond
+XF86AudioMute
+    amixer -D pulse sset Master 5%+ unmute
+    #pactl set-sink-mute 0 toggle
+
+XF86AudioRaiseVolume
+    amixer -D pulse sset Master 5%+ unmute
+
+XF86AudioLowerVolume
+    amixer -D pulse sset Master mute
+
+XF86AudioPlay
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+
+XF86AudioStop
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+
+XF86AudioNext
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
+XF86AudioPrev
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
