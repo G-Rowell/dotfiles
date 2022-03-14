@@ -25,6 +25,13 @@
    - write a script to do this properly
 - install:
    - a `rm` drop in replacement
+- add a script to set default tty prompt for user (ie, don't type user on startup)
+- finish off polybar config
+   - 12 hour time
+   - sleep, lock
+   - shutdown & reboot
+   - audio output swap
+- finish ROFI config
 
 ZSH:
 
