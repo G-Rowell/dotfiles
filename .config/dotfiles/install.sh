@@ -13,8 +13,8 @@ DOTFILES_DIR="$HOME_DIR/.config/dotfiles"
 # Functions
 ########################################################
 # Tee stdout & stderr to the log file
-exec >  >(tee -ia install.log)
-exec 2> >(tee -ia install.log >&2)
+exec >  >(tee -ia "$HOME_DIR/install.log")
+exec 2> >(tee -ia "$HOME_DIR/install.log" >&2)
 
 # 2 args, category, specific action
 logP() {
