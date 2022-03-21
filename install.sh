@@ -1,1 +1,0 @@
-.config/dotfiles/install.sh

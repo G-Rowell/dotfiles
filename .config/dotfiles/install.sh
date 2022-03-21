@@ -1,13 +1,17 @@
 #!/bin/bash
 # Script to setup my Debian installation
 ########################################################
-# Helper funcs & vars
+# Vars
 ########################################################
 USER="growell"
-HOME_DIR="/home/$USER"
-DOTFILES_DIR="$HOME_DIR/.config/dotfiles"
 AUTO_INSTALL="y"
 
+HOME_DIR="/home/$USER"
+DOTFILES_DIR="$HOME_DIR/.config/dotfiles"
+
+########################################################
+# Functions
+########################################################
 # Tee stdout & stderr to the log file
 exec >  >(tee -ia install.log)
 exec 2> >(tee -ia install.log >&2)
@@ -24,17 +28,19 @@ error() {
 
 # 3 args, colour, category, specific note
 log() {
-   echo -e "\e[0;$1m-- $2 | \e[0m$3"
+   echo -e "installer script: \e[0;$1m-- $2 | \e[0m$3"
 }
 
+# 1 arg, question to ask user
 check_user_approval() {
    if [[ "$AUTO_INSTALL" = "y" ]]
    then
       return 1
    else
       read -p "$1? [y/n] " RESPONSE
-      [[ ! "$RESPONSE" = "y" ]] || return 1
+      [[ ! "$RESPONSE" = "y" ]] || unset RESPONSE; return 1
       unset RESPONSE
+      return 0;
    fi
 }
 
