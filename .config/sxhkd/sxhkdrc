@@ -55,14 +55,14 @@ super + {_,shift + }{h,j,k,l}
 # Audio hotkeys
 ##############################################################
 # Mute sond
-XF86AudioMute
+XF86AudioRaiseVolume
     amixer -D pulse sset Master 5%+ unmute
     #pactl set-sink-mute 0 toggle
 
-XF86AudioRaiseVolume
-    amixer -D pulse sset Master 5%+ unmute
-
 XF86AudioLowerVolume
+    amixer -D pulse sset Master 5%- unmute
+
+XF86AudioMute
     amixer -D pulse sset Master mute
 
 XF86AudioPlay
