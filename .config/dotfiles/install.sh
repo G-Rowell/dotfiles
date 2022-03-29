@@ -13,8 +13,8 @@ DOTFILES_DIR="$HOME_DIR/.config/dotfiles"
 # Functions
 ########################################################
 # Tee stdout & stderr to the log file
-exec >  >(tee -ia "$HOME_DIR/install.log")
-exec 2> >(tee -ia "$HOME_DIR/install.log" >&2)
+exec >  >(tee -ia "~/install.log")
+exec 2> >(tee -ia "~/install.log" >&2)
 
 # 2 args, category, specific action
 logP() {
@@ -148,6 +148,9 @@ rm "$HOME_DIR/LICENCE"
 git --git-dir="$DOTFILES_DIR/.git/" --work-tree="$HOME_DIR" update-index --assume-unchanged "$HOME_DIR/LICENCE"
 rm "$HOME_DIR/README.md"
 git --git-dir="$DOTFILES_DIR/.git/" --work-tree="$HOME_DIR" update-index --assume-unchanged "$HOME_DIR/README.md"
+
+mv ~/install.log $HOME_DIR/
+chown growell:growell $HOME_DIR/install.log
 
 logP "script cleanup" "'chown'ing the user dir"
 chown "$USER:$USER" --preserve-root -R "$HOME_DIR"
