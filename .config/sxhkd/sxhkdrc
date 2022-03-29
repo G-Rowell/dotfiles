@@ -2,7 +2,7 @@
 # Programs
 ##############################################################
 # Show run menu
-super + @space
+super + space
    rofi -show drun
 
 # Start terminal emulator
@@ -21,8 +21,8 @@ super + v
 # Bspwm meta hotkeys
 ##############################################################
 # Reload bspwm & sxkhd
-super + {_, shift + }r
-   {bspc wm -r, pkill -USR1 -x sxhkd}
+super + r
+   bspc wm -r; pkill -USR1 -x sxhkd
 
 # Close
 super + shift + q
@@ -49,7 +49,14 @@ super + shift + {w,e}
 
 # Select next node (or swap)
 super + {_,shift + }{h,j,k,l}
-   bspc node -{f,s} {west,south,north,east}
+   bspc node -{f,s} {west,south,north,east} \
+   SHIFT={'n','y'}; DIR={'west','south','north','east'}; \
+   LAYOUT=$(bspc query -T -d | sed -E 's/.*?"layout":"(monocle|tiled)".*/ \1/'); \
+   if [[ $SHIFT == 'y' ]]; then bspc node -s $DIR; \
+   else if [[ $LAYOUT == 'tiled' ]]; then bspc node -f $DIR; \
+      else if [[ $DIR == 'west' || $DIR == 'north' ]]; then bspc node -f next.leaf.local; \
+         else bspc node -f prev.leaf.local; \
+   fi; fi; fi
 
 ##############################################################
 # Audio hotkeys
