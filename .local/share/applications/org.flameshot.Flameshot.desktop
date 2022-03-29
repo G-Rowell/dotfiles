@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Flameshot
+GenericName=Screenshot tool
+Categories=Graphics;
+Icon=org.flameshot.Flameshot
+Exec=/usr/bin/flameshot gui --delay 500
+Terminal=false
