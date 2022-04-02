@@ -49,7 +49,6 @@ super + shift + {w,e}
 
 # Select next node (or swap)
 super + {_,shift + }{h,j,k,l}
-   bspc node -{f,s} {west,south,north,east} \
    SHIFT={'n','y'}; DIR={'west','south','north','east'}; \
    LAYOUT=$(bspc query -T -d | sed -E 's/.*?"layout":"(monocle|tiled)".*/ \1/'); \
    if [[ $SHIFT == 'y' ]]; then bspc node -s $DIR; \
