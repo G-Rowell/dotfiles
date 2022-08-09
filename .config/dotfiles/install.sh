@@ -35,7 +35,7 @@ log() {
 check_user_approval() {
    if [[ "$AUTO_INSTALL" = "y" ]]
    then
-      return 1
+      return 0
    else
       read -p "$1? [y/n] " RESPONSE
       [[ ! "$RESPONSE" = "y" ]] || unset RESPONSE; return 1
