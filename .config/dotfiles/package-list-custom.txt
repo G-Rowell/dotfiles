@@ -22,10 +22,12 @@ alsa-utils      # For audio
 pulseaudio      # For audio
 unifont
 fonts-material-design-icons-iconfont
+network-manager
 ####################################################
 # Basic tooling
 ####################################################
 cups            # Printing
+filelight       # Disk storage analyser
 ####################################################
 # Basic applications
 ####################################################
