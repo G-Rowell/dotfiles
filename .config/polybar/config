@@ -42,7 +42,7 @@ wm-restack = bspwm
 
 modules-left = round-left bspwm round-right
 modules-center = round-left polywins round-right
-modules-right = alsa round-left cpu round-right empty-space wlan mem backlight round-left time  round-right sleep_lock_menu power_menu
+modules-right = alsa round-left cpu round-right empty-space wlan mem backlight round-left time  round-right battery sleep_lock_menu power_menu
 ; modules-right = alsa round-left cpu round-right updates wlan mem xbacklight round-left time  round-right  sleep_lock_menu power_menu
 font-0 = SauceCodePro Nerd Font Mono:style=Bold:pixelsize=14;4
 font-1 = SauceCodePro Nerd Font Mono:size=18;5
@@ -228,7 +228,7 @@ label-connected-foreground = #A3BE8C
 
 [module/battery]
 type = internal/battery
-battery = BAT1
+battery = BAT0
 adapter = AC0
 full-at = 98
 
