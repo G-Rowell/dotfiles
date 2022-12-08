@@ -8,7 +8,7 @@ acpi            # Displays information about batteries & thermals
 ####################################################
 xorg
 xwallpaper
-xbacklight
+light           # Backlight brightness control
 xclip
 # plasma-desktop
 # xcompmgr
