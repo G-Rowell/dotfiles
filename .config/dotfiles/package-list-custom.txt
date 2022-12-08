@@ -28,6 +28,7 @@ network-manager
 ####################################################
 cups            # Printing
 filelight       # Disk storage analyser
+udisks2         # Block device control (usb)
 ####################################################
 # Basic applications
 ####################################################

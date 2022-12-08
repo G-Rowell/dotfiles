@@ -1,16 +1,19 @@
 configuration{
-    modi: "run,drun,window";
+    modi: "drun,window,usb:usb-mount.sh";
     lines: 5;
     font: "SauceCodePro Nerd Font 14";
     show-icons: true;
     icon-theme: "Oranchelo";
-    terminal: "st";
+    terminal: "kitty";
+    kb-row-tab: "";
+    kb-mode-next: "Tab";
+    kb-row-up: "";
+    kb-mode-previous: "ISO_Left_Tab";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
     display-drun: "   Apps ";
-    display-run: "   Run ";
     display-window: " 﩯  window";
     sidebar-mode: true;
 }
