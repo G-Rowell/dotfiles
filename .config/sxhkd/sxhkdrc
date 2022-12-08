@@ -62,10 +62,10 @@ super + {_,shift + }{h,j,k,l}
 ##############################################################
 # Display brightness
 XF86MonBrightnessUp
-   light -A 10
+   sudo light -A 10
 
 XF86MonBrightnessDown
-   light -U 10
+   sudo light -U 10
 
 ##############################################################
 # Audio hotkeys
