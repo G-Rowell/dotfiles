@@ -180,7 +180,7 @@ format = <label>
 format-background = #2a2e36
 format-foreground = #82868e
 
-date = %l:%M%{F-}
+date = %l:%M%P%{F-}
 time-alt = %a, %b %d%{F-}
 
 label = %date%%time%
