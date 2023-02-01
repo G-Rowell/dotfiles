@@ -5,6 +5,7 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 stty stop undef		# Disable ctrl-s to freeze terminal.
 setopt autocd		# Automatically cd into typed directory.
 setopt interactive_comments
+unsetopt complete_aliases
 #setopt histignorealldups sharehistory
 
 # History in cache directory:
@@ -13,7 +14,7 @@ SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
 
 # Basic auto/tab complete:
-autoload -U compinit
+autoload -Uz compinit && compinit -C
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
