@@ -30,6 +30,9 @@ xwallpaper --focus ~/.config/X11/wallpaper.png &
 # Compositor
 picom &
 
+# Fix java display issues
+wmname LG3D &
+
 # Status bar
 pkill polybar
 

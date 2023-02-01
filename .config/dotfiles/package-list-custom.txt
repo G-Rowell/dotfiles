@@ -10,6 +10,7 @@ xorg
 xwallpaper
 light           # Backlight brightness control
 xclip
+wmname
 # plasma-desktop
 # xcompmgr
 picom           # Compositor
