@@ -53,8 +53,8 @@ super + {_,shift + }{h,j,k,l}
    LAYOUT=$(bspc query -T -d | sed -E 's/.*?"layout":"(monocle|tiled)".*/ \1/'); \
    if [[ $SHIFT == 'y' ]]; then bspc node -s $DIR; \
    else if [[ $LAYOUT == 'tiled' ]]; then bspc node -f $DIR; \
-      else if [[ $DIR == 'west' || $DIR == 'north' ]]; then bspc node -f next.leaf.local; \
-         else bspc node -f prev.leaf.local; \
+      else if [[ $DIR == 'west' || $DIR == 'north' ]]; then bspc node -f prev.leaf.local; \
+         else bspc node -f next.leaf.local; \
    fi; fi; fi
 
 ##############################################################
