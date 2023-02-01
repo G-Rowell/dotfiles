@@ -42,7 +42,7 @@ wm-restack = bspwm
 
 modules-left = round-left bspwm round-right
 modules-center = round-left polywins round-right
-modules-right = alsa round-left cpu round-right empty-space wlan mem backlight round-left time  round-right battery sleep_lock_menu power_menu
+modules-right = alsa round-left cpu round-right empty-space wlan empty-space mem backlight round-left time  round-right empty-space battery sleep_lock_menu power_menu
 ; modules-right = alsa round-left cpu round-right updates wlan mem xbacklight round-left time  round-right  sleep_lock_menu power_menu
 font-0 = SauceCodePro Nerd Font Mono:style=Bold:pixelsize=14;4
 font-1 = SauceCodePro Nerd Font Mono:size=18;5
@@ -148,7 +148,7 @@ format-volume = <label-volume> <bar-volume>
 label-volume = " "  
 label-volume-foreground = ${colors.foreground}
 format-muted-foreground = ${colors.foreground}
-label-muted = 󰚙
+label-muted = " ━"
 
 format-muted-padding = 1
 
@@ -164,7 +164,7 @@ bar-volume-gradient = false
 bar-volume-indicator = 
 bar-volume-indicator-foreground = #61afef
 bar-volume-indicator-font = 2
-bar-volume-fill = ━ 
+bar-volume-fill = ━
 bar-volume-fill-foreground = #61afef
 bar-volume-fill-font = 2
 bar-volume-empty = ━
@@ -223,8 +223,11 @@ type = internal/network
 interface = wlp58s0
 interval = 3.0
 format-connected =  <label-connected>
-label-connected = "󰤪  " 
+label-connected = "ifUP: %essid%"
+;label-connected = "󰤪  " 
 label-connected-foreground = #A3BE8C 
+
+label-disconnected= "ifDOWN"
 
 [module/battery]
 type = internal/battery
