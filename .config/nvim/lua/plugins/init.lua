@@ -20,7 +20,6 @@ return require('packer').startup(function(use)
 
    use {
       "nvim-lua/plenary.nvim",
-      module = "plenary"
    }
 
    use {
@@ -70,8 +69,8 @@ return require('packer').startup(function(use)
 
    use {
       "nvim-treesitter/nvim-treesitter",
-      module = "nvim-treesitter",
       run = ":TSUpdate",
+      requires = "catppuccin",
       config = function()
          require "plugins.configs.treesitter"
       end,
@@ -80,7 +79,6 @@ return require('packer').startup(function(use)
    -- git stuff
    use {
       "lewis6991/gitsigns.nvim",
-      ft = "gitcommit",
       setup = function()
          require("plugins.configs.others").gitsigns()
       end,

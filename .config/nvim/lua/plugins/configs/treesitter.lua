@@ -8,6 +8,7 @@ local options = {
   indent = { enable = true },
   ensure_installed = {
     "lua",
+    "python"
   },
   highlight = {
     enable = true,
