@@ -1,5 +1,5 @@
 # ZSH config file
-# Enable colors and change prompt:
+# Enable colors and change prompt
 autoload -U colors && colors	# Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 stty stop undef		# Disable ctrl-s to freeze terminal.
@@ -44,5 +44,6 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # Source alias file
 source ~/.config/zsh/.zshalias
+source ~/.config/zsh/.zshenv
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
