@@ -27,6 +27,8 @@ xrdb merge ~/.config/X11/xresources &
 # Set background
 xwallpaper --focus ~/.config/X11/wallpaper.png &
 
+python3 -m http.server -d ~/.config/firefox-startpage &
+
 # Compositor
 picom &
 
