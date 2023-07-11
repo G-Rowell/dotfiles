@@ -223,7 +223,7 @@ type = internal/network
 interface = wlp58s0
 interval = 3.0
 format-connected =  <label-connected>
-label-connected = "ifUP: %essid%"
+label-connected = "%{A1:kitty nmtui &:}ifUP: %essid% %{A}"
 ;label-connected = "󰤪  " 
 label-connected-foreground = #A3BE8C 
 
