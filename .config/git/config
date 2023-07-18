@@ -10,3 +10,5 @@
 	interactive = auto
 [credential]
 	helper = cache
+[init]
+	defaultBranch = main

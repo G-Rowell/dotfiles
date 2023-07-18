@@ -26,16 +26,11 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export LESSHISTFILE="-"
 
-
 # export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 # export TEXMFHOME="$XDG_DATA_HOME/texmf"
 
-# Fix some java applications trying to create sub-windows
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-# export QT_STYLE_OVERRIDE=kvantum
-#Mozilla 
-export MOZ_USE_XINPUT2="1"	# Mozilla smooth scrolling/touchpads.
-
+# ########################################################
+# Nothing placed below here please!
+# ########################################################
 # Start graphical X server if not already running
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx #"$XINITRC"
