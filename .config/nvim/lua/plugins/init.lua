@@ -61,7 +61,6 @@ return require('packer').startup(function(use)
 
    use {
       "lukas-reineke/indent-blankline.nvim",
-      opt = true,
       config = function()
          require("plugins.configs.others").blankline()
       end,
@@ -172,7 +171,7 @@ return require('packer').startup(function(use)
 
    -- file managing , picker etc
    use {
-      "kyazdani42/nvim-tree.lua",
+      "nvim-tree/nvim-tree.lua",
       cmd = { "NvimTreeToggle", "NvimTreeFocus" },
       config = function()
          require "plugins.configs.nvimtree"
