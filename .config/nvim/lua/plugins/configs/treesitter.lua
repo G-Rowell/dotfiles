@@ -9,7 +9,9 @@ local options = {
   ensure_installed = {
     "lua",
     "python",
-    "comment"
+    "comment",
+    "javascript",
+    "typescript"
   },
   highlight = {
     enable = true,
