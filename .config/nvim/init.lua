@@ -1,9 +1,15 @@
---vim.defer_fn(function()
---  pcall(require, "impatient")
---end, 0)
-
--- require "core"
--- require "core.options"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
 print "starting .."
 -- add binaries installed by mason.nvim to path
@@ -13,4 +19,4 @@ require "options"
 
 require "mappings"
 
-require "plugins"
+require("lazy").setup("plugins")
