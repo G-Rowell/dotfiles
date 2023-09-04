@@ -1,14 +1,6 @@
 local opt = vim.opt
 local g = vim.g
 
-g.vim_version = vim.version().minor
-
--- use filetype.lua instead of filetype.vim. it's enabled by default in neovim 0.8 (nightly)
-if g.vim_version < 8 then
-  g.did_load_filetypes = 0
-  g.do_filetype_lua = 1
-end
-
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
 
