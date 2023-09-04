@@ -7,7 +7,6 @@ end
 local options = {
   filters = {
     dotfiles = false,
-    exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
   },
   disable_netrw = true,
   hijack_netrw = true,
@@ -79,8 +78,6 @@ local options = {
   },
 }
 
--- check for any override
---options = require("utils").load_override(options, "kyazdani42/nvim-tree.lua")
 vim.g.nvimtree_side = options.view.side
 
 nvimtree.setup(options)
