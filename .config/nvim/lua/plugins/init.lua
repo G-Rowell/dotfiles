@@ -14,18 +14,16 @@ return {
   },
 
   {
-    "akinsho/bufferline.nvim",
-    version = "v2.*", 
-    config = function()
-      require("bufferline").setup()
-    end,
-    dependencies = "nvim-tree/nvim-web-devicons"
-  },
-
-  {
     "nvim-lualine/lualine.nvim",
     config = function()
-      require("lualine").setup{}
+      require("lualine").setup{
+        options = {
+          theme = "catppuccin",
+        },
+        tabline = {
+          lualine_a = {'buffers'},
+        }
+      }
     end
   },
 

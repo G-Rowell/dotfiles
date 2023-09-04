@@ -58,14 +58,14 @@ map("v", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 
 
 -- Bufferline
-map("n", "<Tab>", ":BufferLineCycleNext<CR>")
-map("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
+map("n", "<Tab>", ":bnext<CR>")
+map("n", "<S-Tab>", ":bprev<CR>")
+-- pick buffers via numbers
+-- map("n", "<Bslash>", "<cmd>LualineBuffersJump NUM <CR>")
 
 -- map("n", "<S-x>", "<CMD> update | let x=bufnr() | BufferLineCycleNext | bd x <CR>")
 map("n", "<S-x>", '<CMD> lua require("utils").close_buffer() <CR>')
 --//  nmap <Space>q :bp <BAR> bd #<CR> " Close the current buffer tab
--- pick buffers via numbers
-map("n", "<Bslash>", "<cmd>BufferLinePick<CR>")
 -- Comment
 -- toggle comment in both modes
 map("n", "<C-k>", "<C-w>k")
