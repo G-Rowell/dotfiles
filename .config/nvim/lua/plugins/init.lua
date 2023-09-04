@@ -23,9 +23,9 @@ return {
   },
 
   {
-    "tjdevries/express_line.nvim",
+    "nvim-lualine/lualine.nvim",
     config = function()
-      require("el").setup{}
+      require("lualine").setup{}
     end
   },
 
