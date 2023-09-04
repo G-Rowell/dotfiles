@@ -17,7 +17,7 @@ M.close_buffer = function(bufnr)
   else
     bufnr = bufnr or api.nvim_get_current_buf()
     vim.cmd("update")                         -- Save buffer (if edited)
-    vim.cmd("BufferLineCycleNext")            -- Go to a new screen
+    vim.cmd("bnext")            -- Go to a new screen
     vim.cmd("silent! confirm bd" .. bufnr)    -- Close!
   end
 end

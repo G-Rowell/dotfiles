@@ -58,8 +58,8 @@ map("v", "k", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 
 
 -- Bufferline
-map("n", "<Tab>", ":bnext<CR>")
-map("n", "<S-Tab>", ":bprev<CR>")
+map("n", "<Tab>", "<CMD> bnext <CR>")
+map("n", "<S-Tab>", "<CMD> bprev <CR>")
 -- pick buffers via numbers
 -- map("n", "<Bslash>", "<cmd>LualineBuffersJump NUM <CR>")
 
