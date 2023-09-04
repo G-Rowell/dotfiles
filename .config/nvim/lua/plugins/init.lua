@@ -20,8 +20,11 @@ return {
         options = {
           theme = "catppuccin",
         },
+        extensions = {
+          "nvim-tree"
+        },
         tabline = {
-          lualine_a = {'buffers'},
+          lualine_a = {"buffers"},
         }
       }
     end
