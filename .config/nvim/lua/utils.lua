@@ -22,21 +22,4 @@ M.close_buffer = function(bufnr)
   end
 end
 
--- closes tab + all of its buffers
-M.closeAllBufs = function(action)
-  local bufs = vim.t.bufs
-
-  if action == "closeTab" then
-    vim.cmd "tabclose"
-  end
-
-  for _, buf in ipairs(bufs) do
-    M.close_buffer(buf)
-  end
-
-  if action ~= "closeTab" then
-    vim.cmd "enew"
-  end
-end
-
 return M
