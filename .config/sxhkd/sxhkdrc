@@ -71,6 +71,12 @@ XF86MonBrightnessDown
 # Audio hotkeys
 ##############################################################
 # Mute sond
+button6
+    amixer -D pulse sset Master 5%+ unmute
+
+button7
+    amixer -D pulse sset Master 5%- unmute
+
 XF86AudioRaiseVolume
     amixer -D pulse sset Master 5%+ unmute
     #pactl set-sink-mute 0 toggle
