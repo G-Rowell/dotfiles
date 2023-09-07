@@ -42,7 +42,7 @@ wm-restack = bspwm
 
 modules-left = round-left bspwm round-right
 modules-center = round-left polywins round-right
-modules-right = alsa round-left cpu round-right empty-space wlan empty-space mem backlight round-left time  round-right empty-space battery sleep_lock_menu power_menu
+modules-right = pulse round-left cpu round-right empty-space wlan empty-space mem backlight round-left time  round-right empty-space battery sleep_lock_menu power_menu
 ; modules-right = alsa round-left cpu round-right updates wlan mem xbacklight round-left time  round-right  sleep_lock_menu power_menu
 font-0 = SauceCodePro Nerd Font Mono:style=Bold:pixelsize=14;4
 font-1 = SauceCodePro Nerd Font Mono:size=18;5
@@ -142,8 +142,8 @@ label-urgent-foreground = #88C0D0
 label-urgent-background = #2a2e36
 label-urgent-padding = 1
 
-[module/alsa]
-type = internal/alsa
+[module/pulse]
+type = internal/pulseaudio
 format-volume = <label-volume> <bar-volume>
 label-volume = " "  
 label-volume-foreground = ${colors.foreground}
