@@ -218,7 +218,17 @@ return {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     config = function()
-      require "plugins.configs.telescope"
+      require("telescope").setup({
+        defaults = {
+          prompt_prefix = "   ",
+          file_ignore_patterns = { "node_modules" },
+          path_display = { "truncate" },
+          set_env = { COLORTERM = "truecolor", },
+          mappings = {
+            n = { ["q"] = require("telescope.actions").close },
+          },
+        },
+      })
     end,
   },
 
