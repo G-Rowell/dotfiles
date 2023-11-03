@@ -5,7 +5,7 @@ wtfis() {     curl "https://cheat.sh/$1"}
 
 alias cfg='git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/growell/'
 
-alias v='~/.local/bin/nvim.appimage'
+alias v=nvim
 
 # Some `ls` aliases
 alias ls='ls -1 --color --group-directories-first'
