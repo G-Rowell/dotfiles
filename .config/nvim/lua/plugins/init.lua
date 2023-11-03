@@ -1,17 +1,21 @@
 return {
 
-  {
-    "nvim-lua/plenary.nvim",
-  },
+--------------------------------------------------------------------------------
+-- Base plugins
+--------------------------------------------------------------------------------
+
+  { "nvim-lua/plenary.nvim" },
 
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
+    "williamboman/mason.nvim",
     config = function()
-      vim.cmd [[colorscheme catppuccin]]
+      require "plugins.configs.mason"
     end,
   },
+
+--------------------------------------------------------------------------------
+-- Functionality plugins
+--------------------------------------------------------------------------------
 
   {
     "nvim-lualine/lualine.nvim",
@@ -30,33 +34,45 @@ return {
     end
   },
 
+  -- file picker
   {
-    "nvim-tree/nvim-web-devicons",
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    lazy = false,
+    config = function()
+      require("nvim-tree").setup({
+        disable_netrw = true,
+        hijack_cursor = true,
+        hijack_unnamed_buffer_when_opening = true,
+        view = {
+          relativenumber = true,
+          width = 45,
+        },
+        update_focused_file = {
+          enable = true,
+        },
+        renderer = {
+          highlight_git = true,
+        },
+      })
+    end,
   },
 
   {
-    "lukas-reineke/indent-blankline.nvim",
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
     config = function()
-      require("indent_blankline").setup{
-        indentLine_enabled = 0,
-        filetype_exclude = {
-          "help",
-          "terminal",
-          "packer",
-          "lspinfo",
-          "TelescopePrompt",
-          "TelescopeResults",
-          "mason",
-          "",
+      require("telescope").setup({
+        defaults = {
+          prompt_prefix = "   ",
+          file_ignore_patterns = { "node_modules" },
+          path_display = { "truncate" },
+          set_env = { COLORTERM = "truecolor", },
+          mappings = {
+            n = { ["q"] = require("telescope.actions").close },
+          },
         },
-        buftype_exclude = {
-          "terminal"
-        },
-        show_trailing_blankline_indent = false,
-        show_first_indent_level = false,
-        show_current_context = true,
-        show_current_context_start = true,
-      }
+      })
     end,
   },
 
@@ -83,7 +99,7 @@ return {
     end,
   },
 
-  -- git stuff
+  -- git in the sign coloumn
   {
     "lewis6991/gitsigns.nvim",
     config = function()
@@ -99,13 +115,85 @@ return {
     end,
   },
 
-  -- lsp stuff
+--------------------------------------------------------------------------------
+-- Utility plugins
+--------------------------------------------------------------------------------
+
   {
-    "williamboman/mason.nvim",
+    "windwp/nvim-autopairs",
     config = function()
-      require "plugins.configs.mason"
+      require("nvim-autopairs").setup{
+        fast_wrap = {},
+        disable_filetype = { "TelescopePrompt", "vim" },
+      }
+      local cmp = require("cmp")
+      local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
+
+  { "numToStr/Comment.nvim" },
+
+  { "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts  = {
+    },
+  },
+
+  {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup()
+    end,
+  },
+
+  { "folke/todo-comments.nvim" },
+
+--------------------------------------------------------------------------------
+-- Theme / asethetic plugins
+--------------------------------------------------------------------------------
+
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      vim.cmd [[colorscheme catppuccin]]
+    end,
+  },
+
+
+  { "nvim-tree/nvim-web-devicons" },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {
+       exclude = {
+         filetypes = {
+           "help",
+           "terminal",
+           "packer",
+           "lspinfo",
+           "TelescopePrompt",
+           "TelescopeResults",
+           "mason",
+           "",
+         },
+         buftypes = {
+           "terminal",
+         },
+      },
+    },
+  },
+
+--------------------------------------------------------------------------------
+-- LSP (Language server protocol) plugins
+--------------------------------------------------------------------------------
 
   {
     "neovim/nvim-lspconfig",
@@ -152,99 +240,14 @@ return {
     end,
   },
 
-  {
-    "saadparwaiz1/cmp_luasnip",
-  },
+  { "saadparwaiz1/cmp_luasnip" },
 
-  {
-    "hrsh7th/cmp-nvim-lua",
-  },
+  { "hrsh7th/cmp-nvim-lua" },
 
-  {
-    "hrsh7th/cmp-nvim-lsp",
-  },
+  { "hrsh7th/cmp-nvim-lsp" },
 
-  {
-    "hrsh7th/cmp-buffer",
-  },
+  { "hrsh7th/cmp-buffer" },
 
-  {
-    "hrsh7th/cmp-path",
-  },
+  { "hrsh7th/cmp-path" },
 
-  -- misc plugins
-  {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup{
-        fast_wrap = {},
-        disable_filetype = { "TelescopePrompt", "vim" },
-      }
-      local cmp = require("cmp")
-      local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-    end,
-  },
-
-  {
-    "numToStr/Comment.nvim",
-    -- keys = { "gc", "gb" },
-  },
-
-  -- file managing , picker etc
-  {
-    "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    lazy = false,
-    config = function()
-      require("nvim-tree").setup({
-        disable_netrw = true,
-        hijack_cursor = true,
-        hijack_unnamed_buffer_when_opening = true,
-        view = {
-          relativenumber = true,
-        },
-        update_focused_file = {
-          enable = true,
-        },
-        renderer = {
-          highlight_git = true,
-        },
-      })
-    end,
-  },
-
-  {
-    "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
-    config = function()
-      require("telescope").setup({
-        defaults = {
-          prompt_prefix = "   ",
-          file_ignore_patterns = { "node_modules" },
-          path_display = { "truncate" },
-          set_env = { COLORTERM = "truecolor", },
-          mappings = {
-            n = { ["q"] = require("telescope.actions").close },
-          },
-        },
-      })
-    end,
-  },
-
-  {
-    "folke/which-key.nvim",
-  },
-
-
-  {
-    "max397574/better-escape.nvim",
-    config = function()
-      require("better_escape").setup()
-    end,
-  },
-
-  {
-    "folke/todo-comments.nvim",
-  },
 }
