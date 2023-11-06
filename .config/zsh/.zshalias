@@ -5,6 +5,9 @@ wtfis() {     curl "https://cheat.sh/$1"}
 
 alias cfg='git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/growell/'
 
+# Podman container for FIRST management-system dev work
+alias ms='podman run -it --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:18'
+
 alias v=nvim
 
 # Some `ls` aliases
