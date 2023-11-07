@@ -21,7 +21,7 @@ alias gc='git commit'
 alias gch='git checkout'
 alias gpul='git pull'
 alias gp='git push'
-alias gf='git fetch --all'
+alias gf='git fetch --all; git status'
 alias gb='git branch'
 
 alias grem='git remote -v'
