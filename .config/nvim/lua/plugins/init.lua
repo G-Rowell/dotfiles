@@ -28,7 +28,9 @@ return {
           "nvim-tree"
         },
         tabline = {
-          lualine_a = {"buffers"},
+          lualine_a = { {'buffers',
+            max_length = vim.o.columns * 9 / 10
+          }},
         }
       }
     end
