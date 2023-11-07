@@ -12,6 +12,10 @@ export EDITOR="vim"
 export visual="vim"
 export BROWSER="firefox"
 
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=Hyprland
+
 # ~/ Clean-up:
 #export XDG_CONFIG_HOME="$HOME/.config"
 #export XDG_DATA_HOME="$HOME/.local/share"
