@@ -56,6 +56,11 @@ return {
         renderer = {
           highlight_git = true,
         },
+        filters = {
+          exclude = {
+            ".env.*",     -- show .env files, even when ignored by a .gitignore
+          },
+        },
       })
     end,
   },
