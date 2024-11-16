@@ -1,154 +1,17 @@
+-- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
+--
+-- In your plugin files, you can:
+-- * add extra plugins
+-- * disable/enabled LazyVim plugins
+-- * override the configuration of LazyVim plugins
 return {
-
---------------------------------------------------------------------------------
--- Base plugins
---------------------------------------------------------------------------------
-
-  { "nvim-lua/plenary.nvim" },
-
   {
-    "williamboman/mason.nvim",
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
     config = function()
-      require "plugins.configs.mason"
+      vim.cmd([[colorscheme catppuccin]])
     end,
-  },
-
---------------------------------------------------------------------------------
--- Functionality plugins
---------------------------------------------------------------------------------
-
-  {
-    "nvim-lualine/lualine.nvim",
-    config = function()
-      require("lualine").setup{
-        options = {
-          theme = "catppuccin",
-        },
-        extensions = {
-          "nvim-tree"
-        },
-        tabline = {
-          lualine_a = { {'buffers',
-            max_length = vim.o.columns * 9 / 10
-          }},
-        }
-      }
-    end
-  },
-
-  -- file picker
-  {
-    "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-    lazy = false,
-    config = function()
-      require("nvim-tree").setup({
-        disable_netrw = true,
-        hijack_cursor = true,
-        hijack_unnamed_buffer_when_opening = true,
-        view = {
-          relativenumber = true,
-          width = 45,
-        },
-        update_focused_file = {
-          enable = true,
-        },
-        renderer = {
-          highlight_git = true,
-        },
-        filters = {
-          exclude = {
-            ".env.*",     -- show .env files, even when ignored by a .gitignore
-          },
-        },
-      })
-    end,
-  },
-
-  {
-    "nvim-telescope/telescope.nvim",
-    cmd = "Telescope",
-    config = function()
-      require("telescope").setup({
-        defaults = {
-          prompt_prefix = "   ",
-          file_ignore_patterns = { "node_modules" },
-          path_display = { "truncate" },
-          set_env = { COLORTERM = "truecolor", },
-          mappings = {
-            n = { ["q"] = require("telescope.actions").close },
-          },
-        },
-      })
-    end,
-  },
-
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    dependencies = "catppuccin",
-    config = function()
-      require("nvim-treesitter.configs").setup{
-        indent = { enable = true },
-        ensure_installed = {
-          "lua",
-          "python",
-          "comment",
-          "javascript",
-          "typescript"
-        },
-        highlight = {
-          enable = true,
-          use_languagetree = true,
-        },
-      }
-
-    end,
-  },
-
-  -- git in the sign coloumn
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup{
-        signs = {
-          add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
-          change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
-          delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
-          topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
-          changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
-        },
-      }
-    end,
-  },
-
---------------------------------------------------------------------------------
--- Utility plugins
---------------------------------------------------------------------------------
-
-  {
-    "windwp/nvim-autopairs",
-    config = function()
-      require("nvim-autopairs").setup{
-        fast_wrap = {},
-        disable_filetype = { "TelescopePrompt", "vim" },
-      }
-      local cmp = require("cmp")
-      local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-    end,
-  },
-
-  { "numToStr/Comment.nvim" },
-
-  { "folke/which-key.nvim",
-    event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end,
-    opts  = {
-    },
   },
 
   {
@@ -158,103 +21,170 @@ return {
     end,
   },
 
-  { "folke/todo-comments.nvim" },
-
---------------------------------------------------------------------------------
--- Theme / asethetic plugins
---------------------------------------------------------------------------------
-
+  -- Configure LazyVim to load gruvbox
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    config = function()
-      vim.cmd [[colorscheme catppuccin]]
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
+    },
+  },
+
+  -- change trouble config
+  {
+    "folke/trouble.nvim",
+    -- opts will be merged with the parent spec
+    opts = { use_diagnostic_signs = true },
+  },
+
+  -- override nvim-cmp and add cmp-emoji
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = { "hrsh7th/cmp-emoji" },
+    ---@param opts cmp.ConfigSchema
+    opts = function(_, opts)
+      table.insert(opts.sources, { name = "emoji" })
     end,
   },
 
-
-  { "nvim-tree/nvim-web-devicons" },
-
+  -- change some telescope options and a keymap to browse plugin files
   {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
+    "nvim-telescope/telescope.nvim",
+    keys = {
+      -- add a keymap to browse plugin files
+      -- stylua: ignore
+      {
+        "<leader>fp",
+        function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
+        desc = "Find Plugin File",
+      },
+    },
+    -- change some options
     opts = {
-       exclude = {
-         filetypes = {
-           "help",
-           "terminal",
-           "packer",
-           "lspinfo",
-           "TelescopePrompt",
-           "TelescopeResults",
-           "mason",
-           "",
-         },
-         buftypes = {
-           "terminal",
-         },
+      defaults = {
+        layout_strategy = "horizontal",
+        layout_config = { prompt_position = "top" },
+        sorting_strategy = "ascending",
+        winblend = 0,
       },
     },
   },
 
---------------------------------------------------------------------------------
--- LSP (Language server protocol) plugins
---------------------------------------------------------------------------------
+  -- add pyright to lspconfig
+  --  {
+  --    "neovim/nvim-lspconfig",
+  --    ---@class PluginLspOpts
+  --    opts = {
+  --      ---@type lspconfig.options
+  --      servers = {
+  --        -- pyright will be automatically installed with mason and loaded with lspconfig
+  --        tsserver = {},
+  --      },
+  --    },
+  --  },
 
+  -- add more treesitter parsers
+  -- since `vim.tbl_deep_extend`, can only merge tables and not lists, the code above
+  -- would overwrite `ensure_installed` with the new value.
+  -- If you'd rather extend the default config, use the code below instead:
   {
-    "neovim/nvim-lspconfig",
-    lazy = true,
-    config = function()
-      require "plugins.configs.lspconfig"
-    end,
-  },
-
-  -- load luasnips + cmp related in insert mode only
-  {
-    "rafamadriz/friendly-snippets",
-    event = "InsertEnter",
-  },
-
-  {
-    "hrsh7th/nvim-cmp",
-    config = function()
-      require "plugins.configs.cmp"
-    end,
-  },
-
-  {
-    "L3MON4D3/LuaSnip",
-    config = function()
-      require("luasnip").setup{
-        history = true,
-        updateevents = "TextChanged,TextChangedI",
-      }
-
-      require("luasnip.loaders.from_vscode").lazy_load()
-      require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.luasnippets_path or "" }
-
-      vim.api.nvim_create_autocmd("InsertLeave", {
-        callback = function()
-          if
-            require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-            and not require("luasnip").session.jump_active
-          then
-            require("luasnip").unlink_current()
-          end
-        end,
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      -- add tsx and treesitter
+      vim.list_extend(opts.ensure_installed, {
+        "tsx",
+        "typescript",
       })
     end,
   },
 
-  { "saadparwaiz1/cmp_luasnip" },
+  -- the opts function can also be used to change the default opts:
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      table.insert(opts.sections.lualine_x, "😄")
+    end,
+  },
 
-  { "hrsh7th/cmp-nvim-lua" },
+  -- or you can return new options to override all the defaults
+  -- {
+  --   "nvim-lualine/lualine.nvim",
+  --   event = "VeryLazy",
+  --   opts = function()
+  --     return {
+  --       --[[add your custom lualine config here]]
+  --     }
+  --   end,
+  -- },
 
-  { "hrsh7th/cmp-nvim-lsp" },
+  -- use mini.starter instead of alpha
+  -- { import = "lazyvim.plugins.extras.ui.mini-starter" },
 
-  { "hrsh7th/cmp-buffer" },
+  -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
+  -- { import = "lazyvim.plugins.extras.lang.json" },
 
-  { "hrsh7th/cmp-path" },
+  -- add any tools you want to have installed below
+  --{
+  --  "williamboman/mason.nvim",
+  --  opts = {
+  --    ensure_installed = {
+  --      "stylua",
+  --      "shellcheck",
+  --      "shfmt",
+  --      "flake8",
+  --    },
+  --  },
+  --},
 
+  -- Use <tab> for completion and snippets (supertab)
+  -- first: disable default <tab> and <s-tab> behavior in LuaSnip
+  {
+    "L3MON4D3/LuaSnip",
+    keys = function()
+      return {}
+    end,
+  },
+  -- then: setup supertab in cmp
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-emoji",
+    },
+    ---@param opts cmp.ConfigSchema
+    opts = function(_, opts)
+      local has_words_before = function()
+        unpack = unpack or table.unpack
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      end
+
+      local luasnip = require("luasnip")
+      local cmp = require("cmp")
+
+      opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+            -- this way you will only jump inside the snippet region
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
+          elseif has_words_before() then
+            cmp.complete()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+      })
+    end,
+  },
 }

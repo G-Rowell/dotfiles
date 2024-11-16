@@ -6,13 +6,32 @@ wtfis() {     curl "https://cheat.sh/$1"}
 alias cfg='git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/growell/'
 
 # Podman container for FIRST management-system dev work
+# podman pull docker.io/mongodb/atlas
 alias ms='podman run -it --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:18'
+alias mst='ms yarn install; ms yarn typecheck'
+alias msd='ms yarn install; ms yarn dev'
+alias msgrep="grep -ri --exclude-dir={'node_modules','.git','dist','_backend','_frontend','.*'} --exclude={'yarn.lock','yarn-error.log','.*','vite.config.ts.*','tsconfig*'}"
+
+
+alias hsk='podman run -it --workdir /home/ --rm=true --volume=./:/home/ --network=host haskell /bin/bash'
+
+alias mongodb='podman run -it --rm=true --network=host --volume=./:/home/ mongodb/atlas /bin/bash'
+
+alias cse='ssh z5214822@cse.unsw.edu.au'
 
 alias v=nvim
+
+alias steam='flatpak run com.valvesoftware.Steam'
 
 # Some `ls` aliases
 alias ls='ls -1 --color --group-directories-first'
 alias ll='ls -lhA --color --group-directories-first'
+
+# Some `cd` aliases
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # Some `git` aliases
 alias ga='git add'
