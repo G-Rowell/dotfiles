@@ -17,7 +17,7 @@ alias hsk='podman run -it --workdir /home/ --rm=true --volume=./:/home/ --networ
 
 alias mongodb='podman run -it --rm=true --network=host --volume=./:/home/ mongodb/atlas /bin/bash'
 
-alias cse='ssh z5214822@cse.unsw.edu.au'
+alias cse='ssh -XY z5214822@cse.unsw.edu.au'
 
 alias v=nvim
 
