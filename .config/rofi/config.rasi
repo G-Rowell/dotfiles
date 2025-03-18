@@ -6,9 +6,9 @@ configuration{
     icon-theme: "Oranchelo";
     terminal: "kitty";
     kb-row-tab: "";
-    kb-mode-next: "Tab";
+    //kb-mode-next: "Tab";
     kb-row-up: "";
-    kb-mode-previous: "ISO_Left_Tab";
+    //kb-mode-previous: "ISO_Left_Tab";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;

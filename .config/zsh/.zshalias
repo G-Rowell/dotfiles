@@ -7,6 +7,7 @@ alias cfg='git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/
 
 # Podman container for FIRST management-system dev work
 # podman pull docker.io/mongodb/atlas
+# podman pull docker.io/node
 alias ms='podman run -it --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:18'
 alias mst='ms yarn install; ms yarn typecheck'
 alias msd='ms yarn install; ms yarn dev'
@@ -21,7 +22,7 @@ alias cse='ssh -XY z5214822@cse.unsw.edu.au'
 
 alias v=nvim
 
-alias steam='flatpak run com.valvesoftware.Steam'
+#alias steam='flatpak run com.valvesoftware.Steam'
 
 # Some `ls` aliases
 alias ls='ls -1 --color --group-directories-first'
