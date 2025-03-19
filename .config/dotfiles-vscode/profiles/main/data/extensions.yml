@@ -1,0 +1,42 @@
+disabled:
+  - id: asvetliakov.vscode-neovim
+    uuid: 00000000-0000-0000-0000-000000000000
+  - id: aaron-bond.better-comments
+    uuid: 00000000-0000-0000-0000-000000000000
+  - id: asvetliakov.vscode-neovim
+    uuid: 00000000-0000-0000-0000-000000000000
+  - id: dbaeumer.vscode-eslint
+    uuid: 583b2b34-2c1e-4634-8c0b-0b82e283ea3a
+enabled:
+  - id: Catppuccin.catppuccin-vsc
+    uuid: 69264e4d-cd3b-468a-8f2b-e69673c7d864
+  - id: christian-kohler.path-intellisense
+    uuid: a41c1549-4053-44d4-bf30-60fc809b4a86
+  - id: esbenp.prettier-vscode
+    uuid: 96fa4707-6983-4489-b7c5-d5ffdfdcce90
+  - id: Gruntfuggly.todo-tree
+    uuid: 261cac81-cd7b-4555-bb41-0c2d2bcd3e70
+  - id: mongodb.mongodb-vscode
+    uuid: 4b6540da-bfa3-4b88-b9e3-df8f2d161124
+  - id: oderwat.indent-rainbow
+    uuid: eaa2127d-cb69-4ab9-8505-a60c9ee5f28b
+  - id: PKief.material-icon-theme
+    uuid: 5db78037-f674-459f-a236-db622c427c5b
+  - id: redhat.java
+    uuid: 198a707e-28af-4e84-8610-6e2f628dd12d
+  - id: shardulm94.trailing-spaces
+    uuid: 6ad45f5a-09ec-44e5-b363-867ddc1ec674
+  - id: streetsidesoftware.code-spell-checker
+    uuid: f6dbd813-b0a0-42c1-90ea-10dde9d925a7
+  - id: streetsidesoftware.code-spell-checker-australian-english
+    uuid: a27c55aa-e668-4b75-9cd2-ce11538d06e2
+  - id: Tyriar.sort-lines
+    uuid: 00518570-772b-4ccb-8b06-d056f3f556e0
+  - id: vincaslt.highlight-matching-tag
+    uuid: aae00486-7e92-42b3-91b0-2b419e4f3875
+  - id: vscjava.vscode-java-debug
+    uuid: 61fcd0cf-64d7-4836-8d6b-d55f4fb83281
+  - id: YuTengjing.reload-can-solve-any-problems
+    uuid: ffaa1273-b572-4c6f-9370-70ee18bbd020
+  - id: zokugun.cron-tasks
+    uuid: b7bbbbd5-7a39-4312-87aa-ef6a41de67fb

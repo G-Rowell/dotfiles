@@ -1,0 +1,5 @@
+resources:
+  - extensions
+  - keybindings
+  - settings
+  - snippets

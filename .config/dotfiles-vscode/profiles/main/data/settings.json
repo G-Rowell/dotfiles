@@ -1,0 +1,70 @@
+{
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "breadcrumbs.enabled": true,
+  "catppuccin.accentColor": "maroon",
+  "cSpell.enabledFileTypes": {
+    "java": false
+  },
+  "cSpell.language": "en-au",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.sortOrder": "type",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "files.associations": {
+    ".env": "env",
+    ".env.*": "env",
+    ".env.*.local": "env",
+    "authorized_keys": "ssh_config"
+  },
+  "files.exclude": {
+    "_build": true,
+    "node_modules": false
+  },
+  "files.autoSave": "onFocusChange",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableCommitSigning": false,
+  "git.enableSmartCommit": true,
+  "git.pullBeforeCheckout": true,
+  "github.gitProtocol": "ssh",
+  "indentRainbow.errorColor": "rgba(128,32,32,0.1)",
+  "indentRainbow.tabmixColor": "rgba(128,32,96,0.1)",
+  "java.jdt.ls.java.home": "",
+  "javascript.format.enable": true,
+  "javascript.format.insertSpaceAfterConstructor": true,
+  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "redhat.telemetry.enabled": false,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]",
+    "NOTE"
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.colorTheme": "Catppuccin Macchiato",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.settings.applyToAllProfiles": [],
+  "workbench.settings.editor": "ui",
+  "syncSettings.resources": [
+    "extensions",
+    "keybindings",
+    "settings",
+    "snippets"
+  ]
+}
