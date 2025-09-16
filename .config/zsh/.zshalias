@@ -8,8 +8,9 @@ alias cfg='git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/
 # Podman container for FIRST management-system dev work
 # podman pull docker.io/mongodb/atlas
 # podman pull docker.io/node
-alias ms='podman run -it --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:18'
-alias mst='ms yarn install; ms yarn typecheck'
+#alias ms='podman run -it --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:18'
+alias ms='podman run -it --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:22'
+alias mst='ms yarn install; ms yarn typecheck;'
 alias msd='ms yarn install; ms yarn dev'
 alias msgrep="grep -ri --exclude-dir={'node_modules','.git','dist','_backend','_frontend','.*'} --exclude={'yarn.lock','yarn-error.log','.*','vite.config.ts.*','tsconfig*'}"
 
@@ -36,7 +37,7 @@ alias .....='cd ../../../..'
 
 # Some `git` aliases
 alias ga='git add'
-alias gs='git status'
+alias gs='git status; echo; git show -q'
 alias gc='git commit'
 alias gch='git checkout'
 alias gpul='git pull'
