@@ -8,7 +8,6 @@ alias cfg='git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/
 # Podman container for FIRST management-system dev work
 # podman pull docker.io/mongodb/atlas
 # podman pull docker.io/node
-#alias ms='podman run -it --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:18'
 alias ms='podman run -it --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:22'
 alias mst='ms yarn install; ms yarn typecheck;'
 alias msd='ms yarn install; ms yarn dev'
