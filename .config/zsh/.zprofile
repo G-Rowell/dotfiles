@@ -40,4 +40,4 @@ export LESSHISTFILE="-"
 # ########################################################
 # Start graphical X server if not already running
 #[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx #"$XINITRC"
-[ `tty` = "/dev/tty1" ] && ! pidof -S Hyprland >/dev/null 2>&1 && Hyprland
+[ `tty` = "/dev/tty1" ] && ! pidof -S Hyprland >/dev/null 2>&1 && start-hyprland
