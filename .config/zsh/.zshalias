@@ -8,15 +8,18 @@ alias cfg='git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/
 # Podman container for FIRST management-system dev work
 # podman pull docker.io/mongodb/atlas
 # podman pull docker.io/node
-alias ms='podman run -it --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:22'
+alias ms='podman run -it --memory=8g --memory-swap=10g --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:22'
 alias mst='ms yarn install; ms yarn typecheck;'
 alias msd='ms yarn install; ms yarn dev'
 alias msgrep="grep -ri --exclude-dir={'node_modules','.git','dist','_backend','_frontend','.*'} --exclude={'yarn.lock','yarn-error.log','.*','vite.config.ts.*','tsconfig*'}"
 
+alias ms16='podman run -it --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:16'
 
-alias hsk='podman run -it --workdir /home/ --rm=true --volume=./:/home/ --network=host haskell /bin/bash'
 
-alias mongodb='podman run -it --rm=true --network=host --volume=./:/home/ mongodb/atlas /bin/bash'
+
+alias hsk='podman run -it --memory=8g --memory-swap=10g --workdir /home/ --rm=true --volume=./:/home/ --network=host haskell /bin/bash'
+
+alias mongodb='podman run -it --memory=8g --memory-swap=10g --rm=true --network=host --volume=./:/home/ mongodb/atlas /bin/bash'
 
 alias cse='ssh -XY z5214822@cse.unsw.edu.au'
 
