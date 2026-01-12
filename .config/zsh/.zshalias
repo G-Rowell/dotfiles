@@ -12,14 +12,24 @@ alias ms='podman run -it --memory=8g --memory-swap=10g --workdir /home/node/ --r
 alias mst='ms yarn install; ms yarn typecheck;'
 alias msd='ms yarn install; ms yarn dev'
 alias msgrep="grep -ri --exclude-dir={'node_modules','.git','dist','_backend','_frontend','.*'} --exclude={'yarn.lock','yarn-error.log','.*','vite.config.ts.*','tsconfig*'}"
+alias ms16='podman run -it \
+  --workdir /home/node/ \
+  --rm=true \
+  --volume=$HOME/.ssh:/root/.ssh:ro \
+  --volume=$HOME/.config/git/config:/root/.gitconfig:ro \
+  --volume=./:/home/node/ --network=host node:16'
+alias ms16t='ms16 yarn install; ms16 yarn typecheck;'
+alias ms16d='ms16 yarn install; ms16 yarn dev'
 
 alias ms16='podman run -it --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:16'
-
 
 
 alias hsk='podman run -it --memory=8g --memory-swap=10g --workdir /home/ --rm=true --volume=./:/home/ --network=host haskell /bin/bash'
 
 alias mongodb='podman run -it --memory=8g --memory-swap=10g --rm=true --network=host --volume=./:/home/ mongodb/atlas /bin/bash'
+
+# podman pull docker.io/heroku/heroku
+alias heroku='podman run -it --workdir /home/ --rm=true --volume=./:/home/ --network=host heroku:22 /bin/bash'
 
 alias cse='ssh -XY z5214822@cse.unsw.edu.au'
 
