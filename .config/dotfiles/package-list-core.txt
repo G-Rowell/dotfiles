@@ -4,8 +4,12 @@
 sudo
 build-essential
 ####################################################
-# X server, display, audio
+# Wayland, display, audio
 ####################################################
+hyprland
+dunst
+hyprpaper
+waybar
 ####################################################
 # Basic tooling
 ####################################################
@@ -22,8 +26,15 @@ unzip
 grep
 ripgrep
 fuse            # Used to mount appimages (eg: NeoVim)
+udisks2  # usdiskctl to mount / unmount from user space
 ####################################################
 # Basic applications
 ####################################################
 zsh             # Shell program
 htop            # Show running processes / system info
+btop
+fastfetch
+vlc
+rofi
+grim #screenshots
+slurp # screenshot area
