@@ -1,23 +1,20 @@
 configuration{
-    modi: "drun,window,usb:~/.config/rofi/scripts/usb-mount.sh,screenshot:~/.config/rofi/scripts/screenshot.sh,power:~/.config/rofi/scripts/power.sh";
+    modi: "drun,window,usb:usb-mount.sh";
     lines: 5;
     font: "SauceCodePro Nerd Font 14";
     show-icons: true;
     icon-theme: "Oranchelo";
     terminal: "kitty";
-    kb-element-next: "";
-    kb-mode-next: "Tab";
-    kb-element-prev: "";
-    kb-mode-previous: "ISO_Left_Tab";
+    kb-row-tab: "";
+    //kb-mode-next: "Tab";
+    kb-row-up: "";
+    //kb-mode-previous: "ISO_Left_Tab";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-usb: "   USB ";
-    display-power: "   Power ";
-    display-screenshot: "   Screenshot ";
-    display-window: "   window";
     display-drun: "   Apps ";
+    display-window: " 﩯  window";
     sidebar-mode: true;
 }
 
@@ -29,8 +26,7 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-    height: 600px;
-    width: 900px;
+    height: 360px;
     border: 3px;
     border-color: @border-col;
     background-color: @bg-col;
@@ -98,7 +94,7 @@ button {
     padding: 10px;
     background-color: @bg-col-light;
     text-color: @grey;
-    vertical-align: 0.5;
+    vertical-align: 0.5; 
     horizontal-align: 0.5;
 }
 
