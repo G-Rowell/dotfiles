@@ -31,6 +31,8 @@ export CLASSPATH=/home/growell/ProgrammingCoursework/cs3131/
 #export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 #export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export LESSHISTFILE="-"
+
+export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
 #
 # export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 # export TEXMFHOME="$XDG_DATA_HOME/texmf"
