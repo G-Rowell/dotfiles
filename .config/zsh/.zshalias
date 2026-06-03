@@ -29,7 +29,7 @@ alias hsk='podman run -it --memory=8g --memory-swap=10g --workdir /home/ --rm=tr
 alias mongodb='podman run -it --memory=8g --memory-swap=10g --rm=true --network=host --volume=./:/home/ mongodb/atlas /bin/bash'
 
 # podman pull docker.io/heroku/heroku
-alias heroku='podman run -it --workdir /home/ --rm=true --volume=./:/home/ --network=host heroku:22 /bin/bash'
+alias heroku='podman run -it --workdir /home/ --rm=true --volume=./:/home/ --network=host heroku/heroku:26 /bin/bash'
 
 alias cse='ssh -XY z5214822@cse.unsw.edu.au'
 
@@ -50,6 +50,10 @@ alias .....='cd ../../../..'
 # Some `git` aliases
 alias ga='git add'
 alias gs='git status; echo; git show -q'
+## Git status status, what is ahead & behind for branches
+alias gss='git for-each-ref --sort=-committerdate refs/heads/ --count=50 \
+  --format="%(refname:short)|%(upstream:short)|%(upstream:track)" \
+| column -t -s "|"'
 alias gc='git commit'
 alias gch='git checkout'
 alias gpul='git pull'
