@@ -6,32 +6,90 @@ wtfis() {     curl "https://cheat.sh/$1"}
 alias cfg='git --git-dir=/home/growell/.config/dotfiles/.git/ --work-tree=/home/growell/'
 
 # Podman container for FIRST management-system dev work
-# podman pull docker.io/mongodb/atlas
+function ms() {
+  podman run -it \
+    --rm=true \
+    --memory=8g \
+    --memory-swap=10g \
+    --network=host \
+    --volume "$PWD":/app \
+    --volume ms-pnpm-home:/pnpm \
+    --env PNPM_HOME=/pnpm \
+    --env COREPACK_HOME=/pnpm/corepack \
+    --env COREPACK_ENABLE_DOWNLOAD_PROMPT=0 \
+    --env pnpm_config_store_dir=/app/.pnpm-store \
+    --workdir /app \
+    docker.io/library/node:22 \
+    sh -c 'corepack enable pnpm && exec "$@"' sh "$@"
+}
+#function ms() {
+#  podman run -it \
+#    --rm=true \
+#    --memory=8g \
+#    --memory-swap=10g \
+#    --network=host \
+#    --volume "$PWD":/app \
+#    --volume ms-pnpm-home:/pnpm \
+#    --env PNPM_HOME=/pnpm \
+#    --env pnpm_config_store_dir=/app/.pnpm-store \
+#    --workdir /app \
+#    ghcr.io/pnpm/pnpm:12.4.2 \
+#    "$@"
+#}
+function msx() {
+  ms sh -c "$*";
+}
+alias msd='msx "pnpm install && pnpm dev"'
+# podman pull ghcr.io/pnpm/pnpm:12
 # podman pull docker.io/node
-alias ms='podman run -it --memory=8g --memory-swap=10g --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:22'
-alias mst='ms yarn install; ms yarn typecheck;'
-alias msd='ms yarn install; ms yarn dev'
+#alias pnpm='podman run -it --memory=8g --memory-swap=10g --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host pnpm:12 '
+alias mst='msx "pnpm install && pnpm typecheck"'
+alias mstest='msx "pnpm install && pnpm test"'
 alias msgrep="grep -ri --exclude-dir={'node_modules','.git','dist','_backend','_frontend','.*'} --exclude={'yarn.lock','yarn-error.log','.*','vite.config.ts.*','tsconfig*'}"
-alias ms16='podman run -it \
-  --workdir /home/node/ \
-  --rm=true \
-  --volume=$HOME/.ssh:/root/.ssh:ro \
-  --volume=$HOME/.config/git/config:/root/.gitconfig:ro \
-  --volume=./:/home/node/ --network=host node:16'
-alias ms16t='ms16 yarn install; ms16 yarn typecheck;'
-alias ms16d='ms16 yarn install; ms16 yarn dev'
+# podman pull docker.io/mongodb/atlas
 
-alias ms16='podman run -it --workdir /home/node/ --rm=true --volume=./:/home/node/ --network=host node:16'
+# FLL score calculator repo container
+function fll() {
+  [[ $# -eq 0 ]] && set -- bash
+  podman run -it \
+    --rm=true \
+    --memory=4g \
+    --memory-swap=6g \
+    --network=host \
+    --volume "$PWD":/app \
+    --volume fll-corepack:/corepack \
+    --env COREPACK_HOME=/corepack \
+    --env COREPACK_ENABLE_DOWNLOAD_PROMPT=0 \
+    --env pnpm_config_store_dir=/app/.pnpm-store \
+    --workdir /app \
+    docker.io/library/node:22 \
+    sh -c 'corepack enable && exec "$@"' sh "$@"
+}
 
-
-alias hsk='podman run -it --memory=8g --memory-swap=10g --workdir /home/ --rm=true --volume=./:/home/ --network=host haskell /bin/bash'
+# DigitalOcean CLI container
+# podman pull docker.io/digitalocean/doctl
+function doctl() {
+  podman run -it \
+    --rm=true \
+    --network=host \
+    --volume doctl-config:/root/.config/doctl \
+    --volume "$PWD":/workdir \
+    --workdir /workdir \
+    --entrypoint /app/doctl \
+    --secret do_token,type=env,target=DIGITALOCEAN_ACCESS_TOKEN \
+    docker.io/digitalocean/doctl:latest \
+    "$@"
+}
 
 alias mongodb='podman run -it --memory=8g --memory-swap=10g --rm=true --network=host --volume=./:/home/ mongodb/atlas /bin/bash'
 
 # podman pull docker.io/heroku/heroku
-alias heroku='podman run -it --workdir /home/ --rm=true --volume=./:/home/ --network=host heroku/heroku:26 /bin/bash'
+#alias heroku='podman run -it --workdir /home/ --rm=true --volume=./:/home/ --network=host heroku/heroku:26 /bin/bash'
+alias heroku="podman run -it --rm node:22 sh -c 'echo \"starting container\";command -v heroku >/dev/null || npm i -g --prefix /root/.npm-global heroku --silent; exec bash \"\$@\"' --"
+
 
 alias cse='ssh -XY z5214822@cse.unsw.edu.au'
+alias hsk='podman run -it --memory=8g --memory-swap=10g --workdir /home/ --rm=true --volume=./:/home/ --network=host haskell /bin/bash'
 
 alias v=nvim
 
